@@ -1,7 +1,33 @@
-import { ChapterHeader, ChapterSection, Figure, Reveal } from "../components/Narrative";
-import { participants } from "../content/participants";
+import { useState } from "react";
+import { ChapterHeader, ChapterSection, Reveal } from "../components/Narrative";
+import { participants, type Participant } from "../content/participants";
 import { photos } from "../content/media";
 import { sources } from "../content/sources";
+
+function ParticipantPhoto({ participant, number }: { participant: Participant; number: number }) {
+  const [failedSource, setFailedSource] = useState<string | null>(null);
+  if (participant.photo && participant.photo !== failedSource) {
+    return (
+      <div className="aspect-[4/5] overflow-hidden border border-cream/15 bg-surface">
+        <img
+          src={participant.photo}
+          alt={participant.photoAlt || `Retrato de ${participant.name}`}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+          style={{ objectPosition: participant.photoPosition || "center" }}
+          onError={() => setFailedSource(participant.photo ?? null)}
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="flex aspect-[4/5] flex-col justify-between border-t-2 border-olive bg-surface p-8">
+      <span className="font-display text-[clamp(3.5rem,6vw,6rem)] leading-none text-amber">{String(number).padStart(2, "0")}</span>
+      <span className="text-[1.05rem] text-cream-dim">Foto a incluir</span>
+    </div>
+  );
+}
 
 /** Capítulo 09: participantes com placeholders até a entrega dos dados reais, e créditos finais. */
 export function Capitulo09() {
@@ -20,29 +46,31 @@ export function Capitulo09() {
         number="09"
         kicker="Participantes"
         title="Quem fez acontecer."
-        lead="Cada participante contribuiu para esta experiência. Os dados abaixo são provisórios: substitua os placeholders em src/content/participants.ts."
+        lead="Cada participante que contribuiu para esta experiência."
       />
 
       <ul className="mx-auto mt-24 grid max-w-[1480px] gap-x-10 gap-y-20 md:grid-cols-2 lg:grid-cols-3">
         {participants.map((participant, i) => (
           <li key={participant.id}>
             <Reveal variant="up" delay={(i % 3) * 0.08} beat>
-              {participant.photo ? (
-                <Figure photo={participant.photo} aspect="aspect-[4/5]" reveal="mask" />
-              ) : (
-                <div className="flex aspect-[4/5] flex-col justify-between border-t-2 border-olive bg-surface p-8">
-                  <span className="font-display text-[clamp(3.5rem,6vw,6rem)] leading-none text-amber">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[1.05rem] text-cream-dim">Foto a incluir</span>
-                </div>
-              )}
+              <ParticipantPhoto participant={participant} number={i + 1} />
               <h3 className="font-display mt-6 text-[clamp(1.7rem,2.4vw,2.4rem)] leading-tight text-cream">
                 {participant.name}
               </h3>
               <p className="mt-2 text-[1.15rem] text-amber">{participant.role}</p>
               {participant.description && (
                 <p className="mt-3 text-[1.1rem] leading-[1.55] text-cream-dim">{participant.description}</p>
+              )}
+              {participant.portfolioUrl && (
+                <a
+                  href={participant.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex min-h-11 items-center border border-amber px-5 py-2 text-base font-semibold text-amber transition-colors hover:bg-amber hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber"
+                >
+                  Ver portfólio <span aria-hidden="true" className="ml-2">↗</span>
+                  <span className="sr-only"> de {participant.name} (abre em nova aba)</span>
+                </a>
               )}
             </Reveal>
           </li>

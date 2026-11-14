@@ -49,6 +49,27 @@ Os layouts ficam em `src/components/Scenes.tsx`. A navegação fica no hook `use
 
 Para acrescentar uma imagem, salve o arquivo otimizado em `public/images/` e registre-a em `docs/assets.json`, incluindo autoria, licença, fonte e texto alternativo. Use seu `id` no conteúdo. Os aliases das imagens existentes estão em `Photo.tsx`. Não confunda retratos ilustrativos com registros dos episódios narrados.
 
+### Participantes do capítulo 09
+
+Edite a lista em `src/content/participants.ts`: substitua os dados provisórios por nome, função e, se desejar, descrição. Acrescente ou remova objetos para ajustar a quantidade de participantes, mantendo um `id` diferente para cada pessoa.
+
+Para adicionar um retrato, salve o arquivo em `public/images/participantes/` e informe o caminho no campo `photo`. Por exemplo:
+
+```ts
+{
+  id: "p01",
+  name: "Nome do participante",
+  role: "Função no projeto",
+  description: "Breve descrição da contribuição.",
+  photo: "/images/participantes/p01.webp",
+  photoAlt: "Retrato do participante",
+  photoPosition: "center top",
+  portfolioUrl: "https://exemplo.com",
+}
+```
+
+Use arquivos WebP ou JPEG otimizados, preferencialmente retratos verticais. `description`, `photo`, `photoAlt`, `photoPosition` e `portfolioUrl` são opcionais. Sem `photoAlt`, o texto alternativo usa o nome; `photoPosition` ajusta o enquadramento. Ao informar `portfolioUrl`, o cartão exibe um botão para o portfólio. Quando a foto não for informada ou não puder ser carregada, aparece um quadro provisório. Após alterações, gere novamente o build para atualizar também os arquivos disponíveis offline.
+
 ## Verificar
 
 ```bash
