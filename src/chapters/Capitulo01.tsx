@@ -40,6 +40,17 @@ export function Capitulo01() {
         </div>
       </ChapterSection>
 
+      <section aria-label="Arquivo visual da cultura afro-brasileira" className="border-y border-cream/10 bg-surface/55 px-6 py-5 md:px-12 lg:px-20">
+        <div className="mx-auto grid max-w-[1480px] grid-cols-3 gap-2 md:gap-4">
+          <Figure photo="parade" aspect="aspect-[16/9]" caption={false} reveal="photo" parallax={false} />
+          <Figure photo="maracatu" aspect="aspect-[16/9]" caption={false} reveal="photo" parallax={false} />
+          <Figure photo="capoeira" aspect="aspect-[16/9]" caption={false} reveal="photo" parallax={false} />
+        </div>
+        <p className="mx-auto mt-3 max-w-[1480px] text-[0.78rem] font-bold uppercase tracking-[0.18em] text-cream-dim">
+          Arquivo visual · presença, memória e criação
+        </p>
+      </section>
+
       <div className="px-6 py-28 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1480px]">
           <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">

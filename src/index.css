@@ -32,6 +32,8 @@
     font-size: 1.125rem;
     line-height: 1.6;
     background: var(--color-ink);
+    background-image: radial-gradient(circle at 15% 5%, rgb(219 166 109 / 0.06), transparent 24rem);
+    background-attachment: fixed;
     overflow-x: hidden;
   }
 
@@ -206,6 +208,27 @@
     filter: saturate(0.92);
   }
 
+  figure > div {
+    border: 1px solid rgb(244 236 221 / 0.16);
+    box-shadow: 0 18px 50px rgb(0 0 0 / 0.16);
+  }
+
+  [data-chapter] {
+    position: relative;
+  }
+
+  [data-chapter]::before {
+    content: attr(data-index);
+    position: absolute;
+    top: 2rem;
+    right: clamp(1.5rem, 5vw, 5rem);
+    color: rgb(244 236 221 / 0.16);
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.8;
+    pointer-events: none;
+  }
+
   figure:hover img {
     filter: saturate(1.08) contrast(1.025);
   }
@@ -262,5 +285,13 @@
 @media (hover: none) {
   .menu-item:hover {
     padding-left: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  [data-chapter]::before {
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 4.5rem;
   }
 }
