@@ -42,6 +42,8 @@
     font-weight: 500;
     letter-spacing: -0.012em;
     text-wrap: balance;
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 28, "WONK" 1;
   }
 
   p {
@@ -82,13 +84,18 @@
     font-weight: 700;
     transition:
       border-color 0.2s,
+      background-color 0.2s,
       color 0.2s,
-      transform 0.15s;
+      transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.2s;
+    will-change: transform;
   }
 
   .btn:hover:not(:disabled) {
     border-color: var(--color-amber);
     color: var(--color-amber);
+    background-color: rgb(219 166 109 / 0.08);
+    box-shadow: 0 0 0 3px rgb(219 166 109 / 0.08);
   }
 
   .btn:active:not(:disabled) {
@@ -113,12 +120,20 @@
     transition:
       border-color 0.2s,
       background-color 0.2s,
-      color 0.2s;
+      color 0.2s,
+      transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.2s;
   }
 
   .btn-bar:hover {
     border-color: var(--color-amber);
     color: var(--color-amber);
+    background-color: rgb(219 166 109 / 0.08);
+    box-shadow: 0 0 0 3px rgb(219 166 109 / 0.08);
+  }
+
+  .btn-bar:active:not(:disabled) {
+    transform: scale(0.96);
   }
 
   .btn-bar[aria-pressed="true"] {
@@ -136,12 +151,21 @@
     padding: 1rem 1.25rem;
     text-align: left;
     border: 1px solid rgb(244 236 221 / 0.14);
-    transition: border-color 0.2s;
+    transition:
+      border-color 0.25s,
+      background-color 0.25s,
+      transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+      padding 0.25s;
   }
 
   .menu-item:hover,
   .menu-item[aria-current="true"] {
     border-color: var(--color-amber);
+  }
+
+  .menu-item:hover {
+    background: rgb(219 166 109 / 0.07);
+    padding-left: 1.5rem;
   }
 
   .detail-trigger {
@@ -169,6 +193,30 @@
   .detail-trigger:hover {
     color: var(--color-amber);
     border-color: var(--color-amber);
+  }
+
+  .detail-trigger:active {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  figure img {
+    transition:
+      filter 0.45s ease,
+      transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: saturate(0.92);
+  }
+
+  figure:hover img {
+    filter: saturate(1.08) contrast(1.025);
+  }
+
+  a:not(.detail-trigger),
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:active:not(.detail-trigger) {
+    opacity: 0.78;
   }
 
   .detail-trigger:hover::after {
@@ -204,5 +252,15 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  figure img {
+    filter: none !important;
+  }
+}
+
+@media (hover: none) {
+  .menu-item:hover {
+    padding-left: 1.25rem;
   }
 }

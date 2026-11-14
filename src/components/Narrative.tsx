@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import { duration, ease, revealVariants, type RevealVariant } from "../design/tokens";
 import { photos, type PhotoKey } from "../content/media";
 
@@ -43,7 +43,7 @@ export function Reveal({
   children,
   variant = "up",
   delay = 0,
-  dur = duration.base,
+  dur = 0.72,
   beat = false,
   className = "",
 }: RevealProps) {
@@ -55,7 +55,7 @@ export function Reveal({
       variants={revealVariants[variant]}
       initial={reduce ? false : "hidden"}
       whileInView={reduce ? undefined : "show"}
-      viewport={{ once: true, amount: variant === "mask" ? 0 : 0.25, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: variant === "mask" ? 0 : 0.42, margin: "0px 0px -12% 0px" }}
       transition={{ duration: dur, ease, delay }}
     >
       {children}
@@ -71,7 +71,7 @@ interface WordsProps {
 }
 
 /** Entrada progressiva de palavras. O texto completo permanece disponível para leitores de tela. */
-export function Words({ text, delay = 0, step = 0.06, className = "" }: WordsProps) {
+export function Words({ text, delay = 0, step = 0.085, className = "" }: WordsProps) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
   return (
@@ -84,8 +84,8 @@ export function Words({ text, delay = 0, step = 0.06, className = "" }: WordsPro
             className="inline-block"
             initial={reduce ? false : { opacity: 0, y: "0.45em" }}
             whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: duration.base, ease, delay: delay + i * step }}
+            viewport={{ once: true, amount: 0.82, margin: "0px 0px -12% 0px" }}
+            transition={{ duration: 0.68, ease, delay: delay + i * step }}
           >
             {word}
           </motion.span>
@@ -153,7 +153,8 @@ export function Figure({
   const reduce = useReducedMotion();
   const frameRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: frameRef, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 70, damping: 24, mass: 0.5 });
+  const y = useTransform(smoothProgress, [0, 1], ["-5%", "5%"]);
   const item = photos[photo];
 
   return (

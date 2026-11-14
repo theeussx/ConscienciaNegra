@@ -1,16 +1,18 @@
-import { AnimatePresence, motion, useScroll } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { chapters } from "../content/chapters";
 import { ease } from "../design/tokens";
 import { usePresentation } from "../hooks/usePresentation";
 import { ModalShell } from "./Dialog";
 
 function ProgressBar() {
+  const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.35 });
   return (
     <motion.div
       aria-hidden="true"
       className="pointer-events-none fixed inset-x-0 top-0 z-40 h-[3px] origin-left bg-amber"
-      style={{ scaleX: scrollYProgress }}
+      style={{ scaleX: reduce ? scrollYProgress : progress }}
     />
   );
 }
