@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* Design tokens: a paleta é espelhada em src/design/tokens.ts. */
+@theme {
+  --color-ink: #171714;
+  --color-surface: #24231e;
+  --color-cream: #f4ecdd;
+  --color-cream-dim: #cfc6b3;
+  --color-terracotta: #c46f4f;
+  --color-olive: #848c65;
+  --color-amber: #dba66d;
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+  --font-text: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-ink);
+    color: var(--color-cream);
+    scrollbar-gutter: stable;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html.dialog-open {
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-text);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    background: var(--color-ink);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .kicker {
+    font-family: var(--font-text);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-amber);
+    line-height: 1.4;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.55rem 1.1rem;
+    border: 1px solid rgb(244 236 221 / 0.45);
+    color: var(--color-cream);
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition:
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.15s;
+  }
+
+  .btn:hover:not(:disabled) {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  .btn-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    border: 1px solid rgb(244 236 221 / 0.22);
+    transition:
+      border-color 0.2s,
+      background-color 0.2s,
+      color 0.2s;
+  }
+
+  .btn-bar:hover {
+    border-color: var(--color-amber);
+    color: var(--color-amber);
+  }
+
+  .btn-bar[aria-pressed="true"] {
+    background: var(--color-cream);
+    border-color: var(--color-cream);
+    color: var(--color-ink);
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    width: 100%;
+    min-height: 56px;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border: 1px solid rgb(244 236 221 / 0.14);
+    transition: border-color 0.2s;
+  }
+
+  .menu-item:hover,
+  .menu-item[aria-current="true"] {
+    border-color: var(--color-amber);
+  }
+
+  .detail-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 44px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    text-align: left;
+    border-bottom: 2px solid var(--color-terracotta);
+    padding-bottom: 0.15rem;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      transform 0.15s;
+  }
+
+  .detail-trigger::after {
+    content: "→";
+    transition: transform 0.25s;
+  }
+
+  .detail-trigger:hover {
+    color: var(--color-amber);
+    border-color: var(--color-amber);
+  }
+
+  .detail-trigger:hover::after {
+    transform: translateX(4px);
+  }
+
+  .detail-trigger:active {
+    transform: scale(0.985);
+  }
+
+  .typing-caret {
+    display: inline-block;
+    width: 0.45em;
+    height: 1em;
+    margin-left: 2px;
+    vertical-align: -0.12em;
+    background: var(--color-amber);
+    animation: caret 1s steps(2, start) infinite;
+  }
+}
+
+@keyframes caret {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

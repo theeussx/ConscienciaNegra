@@ -98,5 +98,135 @@
     "license": "Domínio público",
     "source": "https://commons.wikimedia.org/wiki/File:Luiz_Gama_perfil.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-old"
+  },
+  {
+    "id": "navio-negreiro",
+    "file": "/images/navio-negreiro.png",
+    "title": "Diagrama histórico do navio Brookes",
+    "alt": "Diagrama histórico em preto e branco do navio Brookes, com planta dos conveses e pessoas escravizadas representadas no porão.",
+    "author": "Autor não identificado; gravura histórica de 1788",
+    "license": "Domínio público",
+    "source": "https://commons.wikimedia.org/wiki/File:Slave_ship_diagram.png",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+  },
+  {
+    "id": "serra-barriga",
+    "file": "/images/serra-barriga.jpg",
+    "title": "Serra da Barriga — Alagoas",
+    "alt": "Vista ampla da Serra da Barriga, com morros verdes sob o céu nublado, local do Quilombo dos Palmares.",
+    "author": "Renato Alves da Costa",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Serra_da_Barriga_-_AL.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "zumbi-monumento",
+    "file": "/images/zumbi-monumento.jpg",
+    "title": "Monumento a Zumbi dos Palmares",
+    "alt": "Monumento dedicado a Zumbi dos Palmares, uma escultura colorida de figura negra com arco e flecha contra o céu.",
+    "author": "Cícero R. C. Omena",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Monumento_a_Zumbi_dos_Palmares_(14897941949).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  {
+    "id": "jongo",
+    "file": "/images/jongo.jpg",
+    "title": "Jongo e Caxambu — Cia. de Moçambique de Taubaté",
+    "alt": "Integrantes da Cia. de Moçambique de Taubaté em apresentação de rua, com vestes brancas e faixas coloridas; o público acompanha o cortejo.",
+    "author": "Márcia Cristina Machado",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jongo_da_Cia_Mo%C3%A7ambique01.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "caruru",
+    "file": "/images/caruru.jpg",
+    "title": "Caruru feito com quiabo",
+    "alt": "Prato de caruru baiano preparado com quiabo, fotografado de cima, com folhas verdes no centro.",
+    "author": "CAROLNAWIKI",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Caruru_feito_com_quiabo.jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "abara",
+    "file": "/images/abara.jpg",
+    "title": "Abará — comida baiana",
+    "alt": "Porção de comida baiana identificada como abará, servida em bandeja com outros acompanhamentos.",
+    "author": "Mesthic22",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20231214_204819_Abar%C3%A1._Comida_baiana.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "id": "vinicius",
+    "file": "/images/vinicius.jpg",
+    "title": "Vinícius Júnior pelo Flamengo, 2018",
+    "alt": "Vinícius Júnior em campo pelo Flamengo, usando uniforme rubro-negro durante uma partida em 2018.",
+    "author": "Agencia de Noticias ANDES",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vin%C3%ADcius_J%C3%BAnior_(cropped).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "richarlison",
+    "file": "/images/richarlison.jpg",
+    "title": "Richarlison pela seleção brasileira na Copa do Mundo de 2022",
+    "alt": "Richarlison em campo pela seleção brasileira, com uniforme amarelo, durante a Copa do Mundo de 2022.",
+    "author": "Hossein Zohrevand",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Richarlison_Copa_do_Mundo_2022_(cropped).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "id": "conceicao-evaristo",
+    "file": "/images/conceicao-evaristo.jpg",
+    "title": "Conceição Evaristo no Festival Latinidades, 2013",
+    "alt": "Conceição Evaristo fala ao microfone durante um debate; veste uma blusa estampada e está sentada diante de um painel.",
+    "author": "Fora do Eixo",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ConceicaoEvaristo_(cropped).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  {
+    "id": "milton-santos",
+    "file": "/images/milton-santos.jpg",
+    "title": "Milton Santos — acervo da TV Brasil",
+    "alt": "Retrato de Milton Santos sorrindo, sentado, com terno escuro e gravata clara.",
+    "author": "TV Brasil",
+    "license": "CC BY 3.0 br",
+    "source": "https://commons.wikimedia.org/wiki/File:Milton_Santos_(TV_Brasil).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/br/deed.en"
+  },
+  {
+    "id": "pele",
+    "file": "/images/pele.jpg",
+    "title": "Pelé após marcar seu milésimo gol, 1969",
+    "alt": "Fotografia histórica em preto e branco de Pelé em campo, após marcar o milésimo gol, em 1969.",
+    "author": "Indalécio Wanderley para O Cruzeiro/EM/D.A Press",
+    "license": "Domínio público",
+    "source": "https://commons.wikimedia.org/wiki/File:Pel%C3%A9_after_scoring_his_thousandth_goal.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+  },
+  {
+    "id": "marcha-consciencia-negra",
+    "file": "/images/marcha-consciencia-negra.jpg",
+    "title": "Marcha da Consciência Negra na Avenida Paulista, 2021",
+    "alt": "Participantes com máscaras caminham em manifestação na Avenida Paulista durante o ato de 20 de Novembro pela Consciência Negra.",
+    "author": "Sâmia Teixeira e Lucas Martins / CSP-Conlutas",
+    "license": "CC0 1.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Marcha_da_Consci%C3%AAncia_Negra_SP_(51695114007).jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "desfile-maracatu",
+    "file": "/images/desfile-maracatu.jpg",
+    "title": "Desfile de maracatu em Fortaleza",
+    "alt": "Cortejo de maracatu à noite em uma rua de Fortaleza, com figuras coloridas e integrantes da apresentação sob iluminação de carnaval.",
+    "author": "Jarre Debson",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Desfile_de_maracatu.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
   }
 ]

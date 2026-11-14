@@ -1,216 +1,109 @@
-// Years identify the source publication; "s.d." means no publication date was established.
-export const sources: Record<
-  string,
-  { title: string; url: string; publisher: string; year: string }
-> = {
-  history: {
-    title: "História Geral da África",
-    url: "https://www.unesco.org/pt/general-history-africa",
-    publisher: "UNESCO",
-    year: "s.d.",
+/**
+ * Registro central de fontes. Cada dado com número, data ou afirmação factual
+ * deve apontar para uma destas entradas.
+ */
+export const sources = {
+  bbc1: {
+    label: "BBC Sport, 3 nov. 2019: Hellas Verona 2-1 Brescia, Balotelli ameaça deixar o campo",
+    url: "https://www.bbc.com/sport/football/50281847",
+  },
+  bbc2: {
+    label: "BBC Sport, nov. 2019: Verona punido com fechamento parcial do estádio",
+    url: "https://www.bbc.com/sport/football/50299720",
+  },
+  reuters: {
+    label: "Reuters, publicada pela Euronews, 3 nov. 2019",
+    url: "https://www.euronews.com/2019/11/03/balotelli-threatens-to-walk-off-over-racist-abuse-in-verona",
+  },
+  guardian_vini: {
+    label: "The Guardian, 23 mai. 2023: prisões e denúncias sobre Vinícius Júnior",
+    url: "https://www.theguardian.com/world/2023/may/23/spanish-police-arrest-four-people-over-vinicius-junior-effigy",
+  },
+  ap_vini: {
+    label: "Associated Press, 23 mai. 2023: prisões e fechamento parcial do Mestalla",
+    url: "https://www.newsday.com/sports/soccer/4-people-arrested-on-suspicion-of-hanging-vinicius-junior-effigy-off-bridge-wtzyo59l",
+  },
+  efe_vini: {
+    label: "Agência EFE, 23 mai. 2023: três detidos em Valência",
+    url: "https://efe.com/en/sports/2023-05-23/three-arrests-over-alleged-racist-incident-in-spanish-soccer-stadium/",
+  },
+  cnn_rich: {
+    label: "CNN, 28 set. 2022: banana atirada contra Richarlison em Paris",
+    url: "https://www.cnn.com/2022/09/28/football/racism-richarlison-brazil-tunisia-tottenham-football-spt-intl",
+  },
+  bbc_rich: {
+    label: "BBC Sport, 28 set. 2022: Richarlison e a banana atirada em campo",
+    url: "https://www.bbc.com/sport/football/63056129",
+  },
+  ibge: {
+    label: "IBGE, Censo Demográfico 2022 (cor ou raça), divulgado em dez. 2023",
+    url: "https://censo2022.ibge.gov.br/",
+  },
+  atlas: {
+    label: "Atlas da Violência 2025, Ipea e Fórum Brasileiro de Segurança Pública (dados de 2023)",
+    url: "https://www.ipea.gov.br/atlasviolencia/",
+  },
+  lei7716: {
+    label: "Lei nº 7.716, de 5 de janeiro de 1989 (Lei Caó)",
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l7716.htm",
+  },
+  lei10639: {
+    label: "Lei nº 10.639, de 9 de janeiro de 2003",
+    url: "https://www.planalto.gov.br/ccivil_03/leis/2003/L10.639.htm",
+  },
+  lei12711: {
+    label: "Lei nº 12.711, de 29 de agosto de 2012 (reserva de vagas)",
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12711.htm",
+  },
+  lei12519: {
+    label: "Lei nº 12.519, de 10 de novembro de 2011 (Dia Nacional de Zumbi e da Consciência Negra)",
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12519.htm",
+  },
+  lei14759: {
+    label: "Lei nº 14.759, de 21 de dezembro de 2023 (feriado nacional)",
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14759.htm",
+  },
+  lei_aurea: {
+    label: "Lei nº 3.353, de 13 de maio de 1888 (Lei Áurea)",
+    url: "https://www.planalto.gov.br/ccivil_03/leis/lim/LIM3353.htm",
+  },
+  cf1988: {
+    label: "Constituição da República Federativa do Brasil de 1988, art. 5º, VI",
+    url: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+  },
+  slave: {
+    label: "Slave Voyages, banco de dados do tráfico transatlântico (estimativas)",
+    url: "https://www.slavevoyages.org/",
+  },
+  iphan: {
+    label: "IPHAN, Ofício das Baianas de Acarajé, Livro dos Saberes (2005)",
+    url: "https://www.gov.br/iphan/",
+  },
+  unesco_cap: {
+    label: "UNESCO, Lista do Patrimônio Cultural Imaterial da Humanidade: capoeira",
+    url: "https://ich.unesco.org/",
+  },
+  unesco_samba: {
+    label: "UNESCO, Obras-Primas do Patrimônio Oral e Imaterial: Samba de Roda do Recôncavo Baiano",
+    url: "https://ich.unesco.org/",
+  },
+  abl: {
+    label: "Academia Brasileira de Letras, acervo sobre Machado de Assis",
+    url: "https://www.academia.org.br/",
   },
   palmares: {
-    title:
-      "Documentos originais revelam novos aspectos da história de Palmares",
-    url: "https://revistapesquisa.fapesp.br/documentos-originais-revelam-novos-aspectos-da-historia-de-palmares/",
-    publisher: "Pesquisa FAPESP",
-    year: "2023",
+    label: "Fundação Cultural Palmares, história do Quilombo dos Palmares",
+    url: "https://www.gov.br/palmares/",
   },
-  dandara: {
-    title:
-      "Pesquisas históricas lançam novos olhares sobre Luiza Mahin e Dandara",
-    url: "https://jornal.unesp.br/2025/09/29/pesquisas-historicas-lancam-novos-olhares-sobre-luiza-mahin-e-dandara/",
-    publisher: "Jornal da Unesp",
-    year: "2025",
+  itau: {
+    label: "Enciclopédia Itaú Cultural, verbetes biográficos",
+    url: "https://enciclopedia.itaucultural.org.br/",
   },
-  abolition: {
-    title: "Lei Áurea faz parte do acervo do Arquivo Nacional",
-    url: "https://www.gov.br/arquivonacional/pt-br/canais_atendimento/imprensa/noticias/lei-aurea-faz-parte-do-acervo-do-arquivo-nacional",
-    publisher: "Arquivo Nacional",
-    year: "2020",
-  },
-  abolitionLaw: {
-    title: "Lei nº 3.353, de 13 de maio de 1888 — Lei Áurea",
-    url: "https://www2.camara.leg.br/legin/fed/leimp/1824-1899/lei-3353-13-maio-1888-533138-norma-pl.html",
-    publisher: "Câmara dos Deputados",
-    year: "1888",
-  },
-  november: {
-    title: "Dia da Consciência Negra se torna feriado nacional",
-    url: "https://www12.senado.leg.br/noticias/noticias/materias/2023/12/22/dia-da-consciencia-negra-se-torna-feriado-nacional",
-    publisher: "Agência Senado",
-    year: "2023",
-  },
-  novemberHistory: {
-    title:
-      "Dia da Consciência Negra, 50 anos: liberdade conquistada, não concedida",
-    url: "https://www12.senado.leg.br/noticias/infomaterias/2021/11/dia-da-consciencia-negra-50-anos-liberdade-conquistada-nao-concedida",
-    publisher: "Agência Senado",
-    year: "2021",
-  },
-  novemberLaw: {
-    title: "Lei nº 12.519, de 10 de novembro de 2011",
-    url: "https://www2.camara.leg.br/legin/fed/lei/2011/lei-12519-10-novembro-2011-611762-publicacaooriginal-134215-pl.html",
-    publisher: "Câmara dos Deputados",
-    year: "2011",
-  },
-  capoeira: {
-    title:
-      "Roda de capoeira e ofício dos mestres de capoeira — Dossiê Iphan 12",
-    url: "https://bibliotecadigital.iphan.gov.br/items/11bba387-1a54-4cd9-9a47-f74b38ee3212",
-    publisher: "IPHAN",
-    year: "2014",
-  },
-  samba: {
-    title: "Samba de Roda of the Recôncavo of Bahia",
-    url: "https://ich.unesco.org/en/RL/samba-de-roda-of-the-reconcavo-of-bahia-00101",
-    publisher: "UNESCO",
-    year: "s.d.",
-  },
-  maracatu: {
-    title: "Maracatu Nação — bem cultural registrado",
-    url: "https://bcr.iphan.gov.br/bens-culturais/maracatu-nacao/",
-    publisher: "IPHAN",
-    year: "s.d.",
-  },
-  maracatuBaqueSolto: {
-    title:
-      "Registro do Maracatu de Baque Solto como Patrimônio Cultural do Brasil",
-    url: "https://bcr.iphan.gov.br/acoes-de-salvaguarda/registro-do-maracatu-de-baque-solto-como-patrimonio-cultural-do-brasil/",
-    publisher: "IPHAN",
-    year: "s.d.",
-  },
-  food: {
-    title: "Ofício das Baianas de Acarajé — bem cultural registrado",
-    url: "https://bcr.iphan.gov.br/bens-culturais/oficio-das-baianas-de-acaraje/",
-    publisher: "IPHAN",
-    year: "s.d.",
-  },
-  foodDossier: {
-    title: "Ofício das Baianas de Acarajé — Dossiê Iphan 6",
-    url: "https://www.ipatrimonio.org/wp-content/uploads/2017/05/PatImDos_OficioBaianasAcaraje_m.pdf",
-    publisher: "IPHAN (cópia disponibilizada pelo iPatrimônio)",
-    year: "2007",
-  },
-  foodRecipes: {
-    title: "No tabuleiro da baiana tem...",
-    url: "https://www.gov.br/secretariageral/pt-br/consea/noticias/2016/no-tabuleiro-da-baiana-tem",
-    publisher: "Consea — Secretaria-Geral da Presidência da República",
-    year: "2016",
-  },
-  balotelli: {
-    title:
-      "Balotelli suffers racist abuse, threatens to walk off after booting ball into crowd",
-    url: "https://www.espn.com/soccer/story/_/id/37578425/mario-balotelli-suffers-racist-abuse-threatens-walk-booting-ball-crowd-brescia-defeat-verona",
-    publisher: "ESPN",
-    year: "2019",
-  },
-  balotelliSanction: {
-    title:
-      "Verona ordered to close part of stadium after racist abuse of Mario Balotelli",
-    url: "https://www.bbc.com/sport/football/50299720",
-    publisher: "BBC Sport",
-    year: "2019",
-  },
-  balotelliAppeal: {
-    title: "Court suspends Verona stand closure",
-    url: "https://www.ansa.it/english/news/sports/2019/11/21/court-suspends-verona-stand-closure_98d137f8-c440-45f5-9df1-ef237cd43a10.html",
-    publisher: "ANSA",
-    year: "2019",
-  },
-  balotelliFinalAppeal: {
-    title: 'Razzismo: Verona, un solo indagato per "buu" a Balotelli',
-    url: "https://www.ansa.it/sito/notizie/sport/calcio/2019/12/22/razzismo-verona-un-solo-indagato-per-buu-a-balotelli_c58505c5-41ff-406b-83c0-7d381efdb4c0.html",
-    publisher: "ANSA",
-    year: "2019",
-  },
-  vinicius: {
-    title:
-      "Comunicado Oficial: condenação de três responsáveis pelos ataques a Vinícius Júnior",
-    url: "https://www.realmadrid.com/es-ES/noticias/club/comunicados/comunicado-oficial-10-06-2024",
-    publisher: "Real Madrid C. F.",
-    year: "2024",
-  },
-  viniciusAppeal: {
-    title:
-      "Resolução do Comité de Apelación — Valencia CF, expediente 627–2022/2023",
-    url: "https://rfef.es/sites/default/files/sanciones/RESOLUCI%C3%93N%20COMIT%C3%89%20DE%20APELACI%C3%93N%20-%20Valencia%20CF.pdf",
-    publisher: "Real Federación Española de Fútbol",
-    year: "2023",
-  },
-  richarlison: {
-    title: "Banana thrown at Brazil's Richarlison in racist attack in Paris",
-    url: "https://www.bbc.co.uk/sport/football/63056129",
-    publisher: "BBC Sport",
-    year: "2022",
-  },
-  machado: {
-    title: "Machado de Assis — Vida e Obra",
-    url: "https://machado.mec.gov.br/",
-    publisher: "Ministério da Educação",
-    year: "s.d.",
-  },
-  carolina: {
-    title: "Carolina Maria de Jesus — Biografia",
-    url: "https://carolinamariadejesus.ims.com.br/biografia/",
-    publisher: "Instituto Moreira Salles",
-    year: "s.d.",
-  },
-  gama: {
-    title: "Juristas que marcaram a história do país: Luís Gama",
-    url: "https://www.oab.org.br/noticia/60070/juristas-que-marcaram-a-historia-do-pais-luis-gama?argumentoPesquisa=Gama",
-    publisher: "Conselho Federal da OAB",
-    year: "2022",
-  },
-  milton: {
-    title:
-      "Google homenageia Milton Santos, geógrafo e professor emérito da FFLCH",
-    url: "https://www.fflch.usp.br/962?page=1",
-    publisher: "FFLCH — Universidade de São Paulo",
-    year: "2018",
-  },
-  evaristo: {
-    title: "Ocupação Conceição Evaristo",
-    url: "https://www.itaucultural.org.br/ocupacao/conceicao-evaristo/",
-    publisher: "Itaú Cultural",
-    year: "2017",
-  },
-  pele: {
-    title: "Pele's three titles — FIFA World Cup records",
-    url: "https://www.fifa.com/en/tournaments/mens/worldcup/articles/pele-three-world-cup-titles-only-player",
-    publisher: "FIFA",
-    year: "s.d.",
-  },
-  peleBiography: {
-    title: "Pele: 1940–2022",
-    url: "https://www.premierleague.com/en/news/2998556",
-    publisher: "Premier League",
-    year: "2022",
-  },
-  present: {
-    title:
-      "Pessoas pretas e pardas continuam com menor acesso a emprego, educação, segurança e saneamento",
-    url: "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/35467-pessoas-pretas-e-pardas-continuam-com-menor-acesso-a-emprego-educacao-seguranca-e-saneamento",
-    publisher: "Agência de Notícias IBGE",
-    year: "2022",
-  },
-  education: {
-    title: "Lei nº 10.639, de 9 de janeiro de 2003",
-    url: "https://legis.senado.leg.br/norma/552515",
-    publisher: "Senado Federal",
-    year: "2003",
-  },
-  religions: {
-    title:
-      "Terreiros do Distrito Federal e entorno — Inventário Nacional de Referências Culturais",
-    url: "https://bibliotecadigital.iphan.gov.br/items/adfe7d05-72de-4cfc-9147-190c279e5357",
-    publisher: "Iphan-DF",
-    year: "2012",
-  },
-  languages: {
-    title: "Línguas africanas que fazem o Brasil",
-    url: "https://acervo.museudalinguaportuguesa.org.br/acervos/7004/linguas-africanas-que-fazem-o-brasil",
-    publisher: "Museu da Língua Portuguesa",
-    year: "2025",
-  },
-};
+} as const;
+
+export type SourceId = keyof typeof sources;
+
+export interface SourceEntry {
+  label: string;
+  url?: string;
+}
