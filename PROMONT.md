@@ -1,206 +1,430 @@
-# PROJETO RAÍZES — ALÉM DA COR
-## Experiência documental cinematográfica e interativa sobre a Consciência Negra
+# RAÍZES — ALÉM DA COR
+## MASTER PROMPT — EXPERIÊNCIA DOCUMENTAL INTERATIVA
 
-Você atuará como uma equipe multidisciplinar de alto nível, composta por:
+### MISSÃO
 
-- Creative Director especializado em experiências digitais premium.
-- Senior Frontend Engineer especializado em React e TypeScript.
-- Motion Designer especializado em animações cinematográficas e microinterações.
-- UI/UX Designer especializado em narrativa visual e interfaces imersivas.
-- Especialista em acessibilidade e performance.
-- Pesquisador e editor de conteúdo histórico e cultural.
+Você atuará como uma equipe de especialistas composta por:
 
-Sua missão é **projetar e implementar uma aplicação web completa**, visualmente extraordinária, sobre a Consciência Negra, destinada a uma apresentação escolar ao vivo em um palco, com projeção em telão.
+- Creative Director.
+- Principal Frontend Engineer.
+- Senior React/TypeScript Developer.
+- Motion Designer.
+- UI/UX Designer.
+- Especialista em acessibilidade.
+- Especialista em performance web.
+- QA Automation Engineer.
+- Pesquisador de história e cultura afro-brasileira.
 
-Não quero um site institucional convencional, um template genérico, um conjunto de cards repetitivos ou uma apresentação de PowerPoint reproduzida no navegador.
+Sua missão é transformar o projeto existente **RAÍZES — ALÉM DA COR** em uma experiência documental interativa, cinematográfica, educativa, fluida, visualmente autoral e tecnicamente confiável.
 
-Quero uma experiência com identidade própria, qualidade editorial, direção de arte cinematográfica, navegação extremamente fluida, animações sofisticadas e conteúdo educativo de verdade.
+O projeto será apresentado ao vivo em um palco escolar, utilizando computador e projetor.
 
-O resultado deverá transmitir o cuidado visual de um documentário interativo, uma exposição digital de museu e uma apresentação profissional de alto impacto.
+A interface deve funcionar como uma narrativa conduzida pelo apresentador.
 
-A aplicação deve se chamar:
+Enquanto o apresentador gira a rodinha do mouse, novas informações aparecem progressivamente, como capítulos de uma história.
 
-**RAÍZES — ALÉM DA COR**
+Quando um assunto precisar de aprofundamento, o apresentador poderá clicar em um elemento interativo. O conteúdo abrirá suavemente, e suas informações serão reveladas com efeito de digitação.
 
-Subtítulo: "Uma história de identidade, cultura, resistência e humanidade."
+O site deve acompanhar o ritmo da apresentação, e não obrigar o apresentador a acompanhar animações automáticas.
 
-Idioma: português brasileiro.
+**Não quero uma landing page, um PowerPoint disfarçado de site, nem uma demonstração exagerada de bibliotecas de animação.**
+
+Quero uma experiência original, envolvente e profissional.
 
 ---
 
-# 1. INSTRUÇÕES INICIAIS OBRIGATÓRIAS
+# 1. CONTEXTO DO PROJETO EXISTENTE
 
-Antes de implementar:
+O projeto já possui uma implementação funcional baseada em React, TypeScript e uma narrativa organizada em nove capítulos e aproximadamente 14 cenas.
 
-1. Inspecione o repositório, a estrutura existente e as dependências instaladas.
-2. Identifique as ferramentas, skills, servidores MCP, bibliotecas e recursos de frontend disponíveis no ambiente do Codex.
-3. Consulte as instruções das ferramentas relevantes e utilize-as quando agregarem qualidade.
-4. Identifique o gerenciador de pacotes e preserve as configurações existentes sempre que possível.
-5. Consulte a documentação atual das bibliotecas antes de utilizar APIs desconhecidas.
-6. Crie um plano técnico e uma arquitetura coerente.
-7. Prossiga com a implementação completa, sem parar apenas no planejamento.
+Funcionalidades previamente implementadas incluem:
 
-Caso o projeto esteja vazio, inicialize-o.
+- Narrativa contínua por rolagem.
+- Revelações progressivas.
+- Modo apresentação.
+- Modo automático.
+- Digitação progressiva.
+- Diálogos animados.
+- Navegação por teclado.
+- Fullscreen.
+- Notas do apresentador.
+- Referências históricas.
+- Participantes centralizados.
+- Recursos offline.
+- Testes com Playwright.
 
-Não instale bibliotecas redundantes nem introduza complexidade desnecessária.
+A versão anterior reportou build, TypeScript, quatro testes unitários e 12 testes E2E aprovados.
 
-Não faça alterações destrutivas em arquivos existentes sem necessidade.
+Entretanto, esses resultados são históricos.
 
-# 2. STACK TECNOLÓGICA
+**Inspecione o estado real do repositório antes de realizar qualquer alteração.**
 
-Stack preferencial:
+Não assuma que tudo continua funcionando.
 
-- React com TypeScript.
-- Vite.
-- Tailwind CSS.
-- Motion for React.
-- GSAP, somente nas animações que justificarem seu uso.
-- Lucide React.
-- Fontes cuidadosamente selecionadas.
-- Componentização modular.
-- CSS moderno com variáveis e design tokens.
+Não reinicie o projeto desnecessariamente.
 
-Motion for React será o motor principal de transições de componentes, presença, gestos e animações declarativas.
+Não destrua funcionalidades corretas.
 
-GSAP poderá ser empregado para timelines cinematográficas complexas, sequenciamento avançado de elementos e cenas sincronizadas.
+Você está autorizado a refatorar componentes e estruturas quando houver benefício técnico demonstrável.
 
-Não use GSAP e Motion para controlar simultaneamente as mesmas propriedades de um elemento.
+# 2. REFERÊNCIA CONCEITUAL
 
-Lenis poderá ser utilizado no modo de exploração, mas não deverá interferir na navegação do modo apresentação.
+Estude o seguinte projeto:
 
-Evite dependências pesadas apenas para efeitos decorativos.
+Site:
+https://perna-cabeluda.vercel.app/
 
-# 3. FILOSOFIA VISUAL
+Repositório:
+https://github.com/theeussx/perna_cabeluda
 
-A experiência deve ser:
+O Perna Cabeluda é uma experiência narrativa desenvolvida para uma apresentação escolar.
 
-- Cinematográfica.
-- Editorial.
-- Sofisticada.
-- Fluida.
-- Imersiva.
-- Responsiva.
-- Acessível.
-- Emocionalmente impactante.
-- Culturalmente respeitosa.
+Utilize-o como referência de:
 
-Não deve parecer um site escolar feito às pressas.
+- Scroll-driven storytelling.
+- Revelação progressiva de conteúdo.
+- Ritmo narrativo.
+- Navegação contínua.
+- Organização editorial.
+- Componentes interativos.
+- Experiências imersivas.
+- Separação entre conteúdo e apresentação.
 
-Evite:
-- Gradientes chamativos sem propósito.
-- Glassmorphism exagerado.
-- Cards idênticos em todas as seções.
-- Emojis como elementos visuais principais.
-- Sombras artificiais excessivas.
-- Efeitos 3D gratuitos.
-- Animações exageradas em assuntos sensíveis.
-- Textos extensos projetados na tela.
-- Layouts genéricos de landing pages SaaS.
+Inspecione especialmente os componentes:
 
-A estética deverá seguir uma abordagem editorial premium, combinando fotografia documental, composição tipográfica e movimento.
+- Entrance.tsx
+- PernaReveal.tsx
+- Archive.tsx
+- Travel.tsx
+- Chrome.tsx
+- Participants.tsx
 
-### Paleta
+Observe como os elementos aparecem conforme a rolagem e como conteúdos detalhados são apresentados após a interação.
 
-- Background principal: #101010
-- Fundo secundário: #191614
-- Marrom terroso: #563C2F
-- Dourado: #D4A65A
-- Terracota: #B85D3C
-- Creme: #F3E8D5
-- Branco suave: #F5F1EB
+### REGRA DE ORIGINALIDADE
 
-Esses valores são pontos de partida, não limites absolutos.
+Não copiar código, layouts, textos, imagens, cores, animações idênticas ou identidade visual do Perna Cabeluda.
 
-Utilize as cores para estabelecer hierarquia emocional entre os capítulos.
+A referência serve para compreender os princípios de experiência narrativa.
+
+O RAÍZES deve possuir identidade própria.
+
+---
+
+# 3. CONCEITO NARRATIVO
+
+Nome:
+
+RAÍZES — ALÉM DA COR
+
+Subtítulo:
+
+"Uma história de identidade, cultura, resistência e humanidade."
+
+Mensagem central:
+
+A história da população negra não começa com a escravidão e não termina com a abolição.
+
+A experiência deve apresentar:
+
+1. Ancestralidade.
+2. História e resistência.
+3. Cultura afro-brasileira.
+4. Culinária.
+5. Racismo no esporte.
+6. Personalidades negras.
+7. Desafios contemporâneos.
+8. Reflexão e encerramento.
+9. Participantes.
+
+A narrativa deve celebrar as contribuições da população negra sem minimizar a violência histórica e os problemas contemporâneos.
+
+O conteúdo precisa ser historicamente correto, respeitoso e acessível ao público escolar.
+
+# 4. NOVA DIREÇÃO DE ARTE
+
+A identidade visual deve transmitir:
+
+- Cultura.
+- História.
+- Humanidade.
+- Criatividade.
+- Contemporaneidade.
+- Sensibilidade.
+- Expressividade.
+- Sofisticação editorial.
+
+Abandonar completamente a aparência genérica de landing page criada por IA.
+
+### Evitar
+
+- Dourado metálico dominante.
+- Layout corporativo.
+- Glassmorphism excessivo.
+- Gradientes decorativos.
+- Cards repetitivos.
+- Botões gigantes.
+- Microtextos sem função.
+- Fontes pequenas.
+- Sombras exageradas.
+- Elementos visuais que competem com o conteúdo.
+- Animações sem significado.
+- Texto excessivo em uma única tela.
+
+### Preferir
+
+- Fotografia documental.
+- Composições editoriais.
+- Tipografia expressiva.
+- Contraste bem trabalhado.
+- Espaçamento generoso.
+- Assimetria intencional.
+- Imagens em destaque.
+- Mudanças de ritmo visual.
+- Componentes com identidade.
+- Transições cinematográficas discretas.
+
+### Paleta inicial
+
+- Fundo profundo: #171714
+- Superfície escura: #24231E
+- Creme: #F4ECDD
+- Terracota: #C46F4F
+- Verde oliva: #848C65
+- Acento quente: #DBA66D
+
+Essas cores são referências, não valores obrigatórios.
+
+Refine a paleta após inspecionar a interface.
+
+Não utilizar todas as cores simultaneamente.
+
+Garantir contraste apropriado.
 
 ### Tipografia
 
-Escolha duas famílias tipográficas compatíveis:
+Escolher uma combinação tipográfica expressiva e legível.
 
-- Uma display elegante, marcante, adequada a títulos editoriais.
-- Uma sans-serif altamente legível para textos informativos, navegação e legendas.
+Utilizar:
 
-Sugestões: DM Sans, Manrope, Inter, Playfair Display e Instrument Serif.
+- Títulos fortes.
+- Subtítulos claros.
+- Textos informativos com leitura confortável.
+- Hierarquia consistente.
+- Line-height adequado.
+- Letter-spacing equilibrado.
+- Escalas responsivas.
 
-Priorize combinações harmoniosas e evite múltiplas famílias desnecessárias.
+Priorizar legibilidade em projetor.
 
-### Composição
+Não utilizar palavras enormes como decoração quando elas prejudicarem a leitura dos nomes e conteúdos.
 
-Empregue:
-- Fotografia em tela cheia.
-- Títulos grandes.
-- Assimetria controlada.
-- Espaçamento generoso.
-- Máscaras fotográficas.
-- Grid editorial.
-- Sobreposição tipográfica.
-- Contraste de escala.
-- Áreas de silêncio visual.
+# 5. ARQUITETURA NARRATIVA POR SCROLL
 
-Cada capítulo deve ter uma linguagem visual própria, mas preservar uma identidade unificada.
+Este é o comportamento principal da aplicação.
 
-# 4. ARQUITETURA DA EXPERIÊNCIA
+A página deverá funcionar como uma narrativa vertical contínua.
 
-A experiência terá oito capítulos principais.
+Não utilizar um conjunto de slides rígidos com altura fixa como estrutura dominante.
 
-Cada capítulo conterá uma ou mais cenas internas, permitindo aprofundar o assunto sem sobrecarregar uma única tela.
+Cada capítulo poderá conter múltiplos blocos narrativos.
 
-Modelo conceitual:
+### Comportamento esperado
 
-Chapter → Scenes → Content → Transitions.
+O apresentador começa a rolar.
 
-Não considere cada capítulo obrigatoriamente equivalente a um único slide.
+Primeiro aparece o título.
 
-O sistema deve permitir que conteúdos sejam editados separadamente da implementação visual.
+Conforme continua, uma fotografia entra suavemente.
 
-Criar componentes reutilizáveis para cenas, cabeçalhos, imagens, timelines, overlays, fontes e controles de apresentação.
+Depois, uma explicação aparece.
+
+Em seguida, surge um acontecimento, personagem ou conteúdo interativo.
+
+Por fim, aparece uma transição para o próximo tema.
+
+**As informações devem surgir individualmente, não todas ao mesmo tempo.**
+
+### Tipos de revelação
+
+Implementar um sistema reutilizável com:
+
+- Fade-up.
+- Reveal lateral.
+- Reveal por máscara.
+- Entrada progressiva de palavras.
+- Transição fotográfica.
+- Parallax sutil.
+- Scale reveal.
+- Sticky storytelling quando justificável.
+
+Utilizar efeitos diferentes conforme a função narrativa.
+
+Evitar repetir exatamente a mesma animação em todos os elementos.
+
+### Controle por scroll
+
+Utilizar Motion for React.
+
+Empregar, conforme necessário:
+
+- useScroll.
+- useTransform.
+- useSpring.
+- useInView.
+- IntersectionObserver.
+
+Revelações simples podem ocorrer ao entrar na viewport.
+
+Momentos cinematográficos podem acompanhar progressivamente a posição do scroll.
+
+A rolagem deve permanecer natural.
+
+Não bloquear o navegador agressivamente.
+
+Não transformar cada pequeno movimento do mouse em troca obrigatória de cena.
+
+Permitir que o apresentador pare em qualquer ponto e continue narrando.
+
+Ao rolar para cima, conteúdos anteriores precisam continuar acessíveis e compreensíveis.
+
+# 6. TIMING E RITMO NARRATIVO
+
+O site será apresentado ao vivo.
+
+Não quero que as animações determinem o tempo da apresentação.
+
+Regras:
+
+- A maior parte das revelações deve durar entre 300 e 700 ms.
+- Transições cinematográficas podem durar mais, quando justificadas.
+- Textos importantes precisam permanecer na tela.
+- Não fazer informações desaparecerem antes de serem lidas.
+- Não obrigar o apresentador a esperar animações longas.
+- Permitir interrupção ou conclusão imediata.
+- Não gerar grandes espaços vazios sem função.
+- Não agrupar vários acontecimentos importantes numa única revelação.
+
+A narrativa deve alternar momentos visuais intensos e momentos de leitura tranquila.
+
+# 7. COMPONENTES INTERATIVOS
+
+Nem todas as informações serão reveladas apenas por scroll.
+
+Algumas precisarão de cliques.
+
+Aplicar esse comportamento a:
+
+- Personalidades negras.
+- Pratos da culinária.
+- Manifestações culturais.
+- Marcos históricos.
+- Acontecimentos do futebol.
+- Informações adicionais.
+
+### Ao clicar
+
+1. O elemento responde visualmente.
+2. O conteúdo detalhado abre suavemente.
+3. O título é apresentado.
+4. O texto começa a ser revelado com digitação.
+5. O usuário pode pausar, continuar ou completar a escrita.
+6. É possível fechar ou selecionar outra informação.
+7. A navegação retorna ao ponto anterior naturalmente.
+
+### Ao fechar
+
+- Executar animação de saída.
+- Cancelar corretamente a digitação.
+- Restaurar foco.
+- Preservar a posição do scroll.
+- Não reiniciar o capítulo.
+- Não causar saltos no layout.
+
+### Troca rápida
+
+Se o usuário clicar em outro card durante uma animação:
+
+- Cancelar a animação anterior.
+- Atualizar o conteúdo.
+- Executar nova transição.
+- Não misturar textos.
+- Não duplicar timers.
+- Não criar estados inconsistentes.
+
+# 8. SISTEMA DE DIGITAÇÃO PROGRESSIVA
+
+Preservar e aperfeiçoar useTypewriter.ts.
+
+### Aplicação
+
+Usar principalmente em textos que aparecem após cliques.
+
+A narrativa principal deverá utilizar scroll reveal.
+
+Os conteúdos detalhados usarão typewriter.
+
+### Requisitos
+
+- Digitação suave.
+- Velocidade configurável.
+- Preservação de caracteres Unicode.
+- Pausar.
+- Continuar.
+- Completar imediatamente.
+- Reiniciar.
+- Cancelar ao fechar.
+- Cancelar ao trocar de conteúdo.
+- Respeitar movimento reduzido.
+- Não causar mudanças bruscas de layout.
+
+Utilizar segmentação Unicode adequada para evitar fragmentar caracteres compostos.
+
+### Acessibilidade
+
+O texto completo precisa permanecer disponível semanticamente para leitores de tela.
+
+Não fazer leitores de tela anunciarem individualmente cada caractere.
+
+Garantir seleção e cópia do texto quando completamente revelado.
+
+# 9. CONTEÚDO DOS NOVE CAPÍTULOS
 
 ## CAPÍTULO 01 — ABERTURA
 
-Título principal:
+Título:
 
 "Uma história que vive em nós."
 
-Mensagem secundária:
+Apresentar o conceito de Consciência Negra.
 
-"A cultura que nos forma. A resistência que nos inspira."
+Criar uma abertura visualmente marcante.
 
-Criar uma abertura cinematográfica com uma fotografia documental de grande impacto.
+Fotografia documental, título expressivo e revelações progressivas.
 
-Sequência visual sugerida:
+Eliminar aparência de hero comercial.
 
-1. Fundo inicialmente escuro.
-2. Fotografia revelada por uma máscara animada.
-3. Pequena identificação "20 DE NOVEMBRO".
-4. Título aparece em sequência de palavras.
-5. Subtítulo entra suavemente.
-6. Indicador discreto convida o usuário a avançar.
-
-Evitar introdução longa ou animação que atrapalhe o início da apresentação.
+Não usar botão corporativo de chamada para ação.
 
 ## CAPÍTULO 02 — HISTÓRIA E RESISTÊNCIA
 
-Apresentar a trajetória histórica da população negra no Brasil com contextualização adequada.
-
 Abordar:
 
-- Sociedades e culturas africanas anteriores à colonização.
-- Tráfico transatlântico e escravização.
-- Resistências individuais e coletivas.
+- Sociedades africanas anteriores à colonização.
+- Escravização e tráfico transatlântico.
+- Resistência.
 - Quilombos.
 - Zumbi dos Palmares.
 - Dandara dos Palmares.
-- Abolição de 1888.
-- Limitações sociais da abolição.
-- Significado histórico do 20 de novembro.
+- Abolição.
+- Limitações da abolição.
+- 20 de novembro.
 
-Criar uma timeline interativa com mudanças cinematográficas de contexto.
+Criar uma narrativa cronológica.
 
-As transições devem conectar os acontecimentos historicamente.
+Os acontecimentos devem aparecer progressivamente conforme a rolagem.
 
-Não reduzir a história da população negra ao período da escravidão.
-
-Distinguir fatos documentados de interpretações históricas.
+Utilizar imagens, datas e contextualizações curtas.
 
 ## CAPÍTULO 03 — CULTURA AFRO-BRASILEIRA
 
@@ -208,97 +432,77 @@ Título:
 
 "A África que vive no Brasil."
 
-Explorar a influência africana sobre a formação cultural brasileira.
+Abordar:
 
-Incluir:
-
+- Maracatu.
 - Capoeira.
 - Samba.
-- Maracatu.
-- Música e instrumentos.
+- Música.
+- Danças.
 - Religiosidades de matriz africana.
-- Expressões linguísticas.
-- Festividades.
-- Arte e tradições.
+- Arte.
+- Linguagem.
+- Tradições.
 
-Destacar Pernambuco com atenção ao maracatu e suas raízes históricas.
+Destacar manifestações culturais de Pernambuco quando pertinente.
 
-Usar um mural fotográfico interativo com composições variadas.
+Criar estações interativas.
 
-Ao selecionar um tema, abrir uma cena detalhada com:
+Ao clicar em cada manifestação, abrir uma contextualização com digitação progressiva.
 
-- Fotografia de qualidade.
-- Nome da manifestação.
-- Contexto histórico.
-- Influência cultural.
-- Curiosidade relevante.
+Não tratar culturas africanas como uma única cultura homogênea.
 
-Utilizar transições de imagem compartilhada quando apropriado.
-
-Evitar tratar culturas africanas como se fossem homogêneas.
-
-Não atribuir origem africana exclusiva a manifestações culturais que resultaram de múltiplas influências.
-
-## CAPÍTULO 04 — CULINÁRIA E ANCESTRALIDADE
+## CAPÍTULO 04 — CULINÁRIA
 
 Título:
 
 "Sabores que contam histórias."
 
-Criar uma galeria editorial de pratos ligados à influência africana na culinária brasileira.
-
-Abordar:
+Apresentar:
 
 - Acarajé.
 - Vatapá.
 - Caruru.
 - Abará.
-- Outros alimentos relevantes, desde que a origem e as influências sejam verificadas.
+- Outros exemplos historicamente pertinentes.
 
-A apresentação deve destacar a riqueza cultural dos alimentos e o papel dos saberes transmitidos entre gerações.
+Criar uma composição editorial gastronômica.
 
-Interface proposta:
+Fotografias grandes e contextualização cultural.
 
-- Fotografias grandes.
-- Composição em camadas.
-- Transições suaves entre pratos.
-- Descrições curtas.
-- Origem ou contexto histórico.
-- Ingredientes característicos.
+Ao clicar no prato:
 
-Não inventar explicações etimológicas, ingredientes ou origens históricas.
+- Revelar nome.
+- Explicar sua história.
+- Apresentar ingredientes característicos.
+- Mostrar influências culturais.
+- Utilizar digitação progressiva.
 
-A galeria deve ser bonita e funcional, sem transformar o assunto em simples catálogo de produtos.
+Verificar as origens e evitar atribuições históricas incorretas.
 
-## CAPÍTULO 05 — O RACISMO NO FUTEBOL
-
-Este será um dos capítulos emocionalmente mais importantes.
+## CAPÍTULO 05 — RACISMO NO FUTEBOL
 
 Título:
 
 "O talento não deveria ter cor."
 
-Subtítulo:
+Este capítulo deve ter forte impacto narrativo.
 
-"Quando o preconceito ultrapassa as arquibancadas."
+### MARIO BALOTELLI — ESTUDO DE CASO PRINCIPAL
 
-Apresentar casos documentados de racismo no futebol, com foco especial em:
+Apresentar o episódio de 3 de novembro de 2019, na partida Hellas Verona x Brescia.
 
-### MARIO BALOTELLI
+Contextualizar:
 
-Criar uma sequência cinematográfica dedicada ao episódio de 3 de novembro de 2019, durante Hellas Verona x Brescia, pelo Campeonato Italiano.
+- O jogador.
+- A partida.
+- Os insultos racistas relatados.
+- A reação de Balotelli.
+- A interrupção temporária do jogo.
+- As consequências documentadas.
+- A discussão sobre racismo no esporte.
 
-Dados históricos a apresentar:
-
-- Balotelli defendia o Brescia.
-- Relatou ter sofrido insultos e manifestações racistas de torcedores.
-- Em reação, chutou a bola em direção à arquibancada.
-- Demonstrou intenção de abandonar o gramado.
-- A partida foi interrompida temporariamente.
-- Companheiros e oficiais intervieram.
-- O Hellas Verona recebeu punição de fechamento parcial de arquibancada por uma partida.
-
-Fontes iniciais para verificação:
+Fontes para consulta inicial:
 
 https://www.bbc.com/sport/football/50281847
 
@@ -306,68 +510,52 @@ https://www.bbc.com/sport/football/50299720
 
 https://www.euronews.com/2019/11/03/balotelli-threatens-to-walk-off-over-racist-abuse-in-verona
 
-Confirmar os fatos com fontes jornalísticas confiáveis antes de publicar.
+Verificar as informações antes de publicar.
 
-### Direção visual da sequência Balotelli
+### NARRATIVA DO BALOTELLI
 
-Cena A — O jogador
+Primeiro scroll:
+Revelar o título.
 
-Fotografia de Balotelli ocupando boa parte da tela.
+Segundo momento:
+Fotografia do jogador.
 
-Título:
+Terceiro:
+Data e local.
 
-"Ele só queria jogar futebol."
+Quarto:
+Contextualização da partida.
 
-Cena B — O acontecimento
+Quinto:
+Acontecimento racista.
 
-A imagem escurece progressivamente.
+Sexto:
+Reação do jogador.
 
-Surge:
+Sétimo:
+Timeline interativa.
 
-"Verona, Itália."
+Oitavo:
+Reflexão final.
 
-"3 de novembro de 2019."
+Não revelar tudo ao mesmo tempo.
 
-Cena C — A reação
+Ao clicar em um marco da timeline, abrir detalhes com digitação progressiva.
 
-Timeline visual dos acontecimentos da partida.
+### OUTROS JOGADORES
 
-Destacar o instante em que ele interrompeu a jogada e reagiu aos insultos.
-
-Cena D — A reflexão
-
-Exibir a pergunta:
-
-"Até quando alguém precisará lutar pelo direito de ser respeitado?"
-
-Utilizar uma transição silenciosa e contida.
-
-Não reproduzir insultos racistas como efeito visual decorativo.
-
-Não utilizar vídeos, áudios ou imagens chocantes sem necessidade educacional.
-
-Não inventar citações diretas de Balotelli.
-
-### OUTROS CASOS
-
-Adicionar conteúdos sobre:
+Incluir também:
 
 - Vinícius Júnior.
 - Richarlison.
-- Outros atletas, se houver documentação suficiente.
 
-Cada caso deve conter:
+Utilizar casos documentados.
 
-- Nome do atleta.
-- Data.
-- Partida ou contexto.
-- Descrição objetiva do acontecimento.
-- Respostas institucionais, se documentadas.
-- Referências.
+Apresentar contexto, data e fontes.
 
-Não afirmar punições, decisões judiciais ou desfechos sem confirmação.
+Não inventar citações, punições ou desfechos.
 
-Finalizar o capítulo destacando a importância de combater o racismo nos estádios, nas escolas e no cotidiano.
+O caso de Balotelli terá maior profundidade.
 
 ## CAPÍTULO 06 — PROTAGONISMO NEGRO
 
@@ -375,9 +563,7 @@ Título:
 
 "Não apenas resistiram. Transformaram o mundo."
 
-Criar uma exposição interativa de personalidades negras.
-
-Possíveis nomes:
+Apresentar:
 
 - Machado de Assis.
 - Carolina Maria de Jesus.
@@ -386,42 +572,31 @@ Possíveis nomes:
 - Conceição Evaristo.
 - Pelé.
 
-Para cada personalidade:
+Criar composições editoriais de retratos.
 
-- Nome.
-- Área de atuação.
-- Contribuição principal.
-- Contextualização breve.
-- Fotografia histórica, quando disponível.
-- Fonte de pesquisa.
+Evitar cards genéricos repetitivos.
 
-Criar cards editoriais de diferentes tamanhos, não um grid repetitivo.
+Ao clicar em uma personalidade, abrir detalhes com digitação.
 
-Ao selecionar uma pessoa, revelar uma cena de destaque com sua história e realizações.
+Não permitir sobreposição de nomes, imagens e palavras decorativas.
 
-## CAPÍTULO 07 — CONSCIÊNCIA NEGRA NO PRESENTE
-
-Título:
-
-"A história continua sendo escrita."
+## CAPÍTULO 07 — CONSCIÊNCIA NEGRA NA ATUALIDADE
 
 Abordar:
 
 - Racismo estrutural.
-- Desigualdade de oportunidades.
+- Desigualdade social.
 - Educação antirracista.
 - Representatividade.
-- Respeito à diversidade.
-- Valorização da cultura negra.
+- Respeito.
+- Valorização cultural.
 - Responsabilidade coletiva.
 
-Utilizar dados de instituições confiáveis, como IBGE e órgãos públicos, quando relevantes.
+Usar estatísticas somente quando verificadas.
 
-Toda estatística deve exibir fonte, ano e contexto.
+Exibir instituição, ano e fonte.
 
 Não inventar números.
-
-Se não houver dados verificados disponíveis, utilizar explicações qualitativas até obter fontes adequadas.
 
 ## CAPÍTULO 08 — ENCERRAMENTO
 
@@ -429,388 +604,344 @@ Título:
 
 "O futuro também tem raízes."
 
-Construir um encerramento emocionalmente significativo.
+Criar uma conclusão emocionante e respeitosa.
 
-Mensagem sugerida:
+Mensagem central:
 
 "Conhecer a história é reconhecer o passado. Respeitar as diferenças é transformar o presente. Combater o racismo é construir o futuro."
 
-Utilizar uma composição com retratos ou referências visuais à diversidade da população negra brasileira.
+Não exagerar nas animações.
 
-Encerrar com créditos e referências.
+Criar uma transição natural para os participantes.
 
-Inserir um botão discreto:
+## CAPÍTULO 09 — PARTICIPANTES
 
-"Recomeçar apresentação."
+Título:
 
-A conclusão deve transmitir responsabilidade, valorização cultural e esperança, sem minimizar os problemas apresentados.
+"Quem fez acontecer."
 
----
+Utilizar os dados de:
 
-# 5. SISTEMA DE ANIMAÇÕES CINEMATOGRÁFICAS
+src/content/participants.ts
 
-A qualidade das animações é uma prioridade central.
+Não inventar nomes.
 
-Criar um sistema de motion design com padrões consistentes.
+Preservar placeholders quando os dados reais ainda não estiverem disponíveis.
 
-Implementar:
+Cada participante poderá possuir:
 
-### Transições entre capítulos
+- Nome.
+- Função.
+- Fotografia opcional.
+- Descrição opcional.
 
-- Crossfade sofisticado.
-- Movimento horizontal ou vertical contextual.
-- Revelação por máscaras.
-- Pequenas mudanças de escala.
-- Transições fotográficas.
-- Preservação da continuidade visual.
+Criar composição editorial elegante.
 
-### Tipografia
+Os participantes devem surgir progressivamente conforme a rolagem.
 
-- Entrada escalonada de palavras.
-- Text reveal com overflow hidden.
-- Fade-up suave.
-- Tracking e opacidade quando apropriados.
-- Sequenciamento de títulos e subtítulos.
+Adicionar referências e créditos finais após essa seção.
 
-### Imagens
+# 10. MODO APRESENTAÇÃO
 
-- Zoom cinematográfico discreto.
-- Revelação gradual.
-- Parallax limitado.
-- Shared element transitions quando viável.
-- Transições entre estados com continuidade visual.
+Preservar o modo apresentação.
 
-### Microinterações
+Mas o scroll será o principal mecanismo de navegação.
 
-- Hover elegante.
-- Botões responsivos.
-- Indicadores animados.
-- Cursor contextual apenas onde fizer sentido.
-- Feedback de navegação.
-- Transições de foco.
+### Controles
 
-### Regras de qualidade
+- Rodinha do mouse: avançar naturalmente.
+- Seta para baixo: próximo marco narrativo.
+- Seta para cima: marco anterior.
+- Espaço: avançar etapa quando apropriado.
+- Escape: fechar overlays ou sair do fullscreen.
+- Botão de capítulos: navegação direta.
 
-Não animar tudo simultaneamente.
+Evitar conflitos entre teclas usadas pelo navegador e pelo aplicativo.
 
-Não utilizar efeitos apenas para demonstrar capacidade técnica.
+### Funcionalidades
 
-Criar hierarquia temporal: primeiro o elemento principal, depois elementos secundários.
+- Fullscreen.
+- Progresso discreto.
+- Notas do apresentador.
+- Acesso rápido aos capítulos.
+- Retorno a conteúdos anteriores.
+- Controle de digitação.
+- Modo automático opcional.
 
-Preferir transform e opacity para animações frequentes.
+Ao abrir um card, os controles devem respeitar o conteúdo ativo.
 
-Não gerar layout shifts ou elementos piscando.
+Não permitir que o mesmo evento dispare duas ações.
 
-A experiência precisa ser agradável mesmo após repetidas navegações.
+# 11. LAYOUT E RESPONSIVIDADE
 
-Respeitar `prefers-reduced-motion`.
+O site deve funcionar em:
 
-Garantir limpeza de timelines, listeners e observers.
+- 1920×1080.
+- 1366×768.
+- 768×1024.
+- 390×844.
 
-Interromper animações corretamente quando o usuário mudar rapidamente de capítulo.
+A prioridade é a projeção em formato 16:9.
 
-# 6. MODO APRESENTAÇÃO — FUNCIONALIDADE CENTRAL
+Mas o site não deve depender de alturas fixas.
 
-A aplicação será apresentada em palco, conectada a um projetor ou telão.
+Evitar:
 
-Implementar um modo apresentação completo.
+- Grandes faixas claras.
+- Cabeçalhos excessivos.
+- Rodapés gigantes.
+- Textos sobrepostos.
+- Imagens distorcidas.
+- Scroll horizontal.
+- Modais fora da viewport.
+- Cards com conteúdo cortado.
+
+Utilizar fluxo natural de layout.
+
+Reservar posicionamento absoluto para composições que realmente precisam dele.
 
 ### Navegação
 
-- Seta direita: próxima cena.
-- Seta esquerda: cena anterior.
-- Espaço: próxima cena.
-- Home: início.
-- End: encerramento.
-- Escape: sair do modo tela cheia ou fechar overlays, conforme contexto.
+Criar controles discretos.
 
-Adicionar navegação por botões visuais discretos.
+Não deixar barras fixas cobrirem botões.
 
-### Fullscreen
+Garantir que elementos decorativos não interceptem cliques.
 
-Implementar suporte à Fullscreen API com tratamento de falhas e fallback.
+Definir regras consistentes de z-index e pointer-events.
 
-Nunca depender exclusivamente de fullscreen para o site funcionar.
+# 12. PERFORMANCE
 
-### Indicador de progresso
+A experiência deve funcionar bem num computador intermediário conectado a projetor.
 
-Mostrar:
+Priorizar:
 
-- Capítulo atual.
-- Total de capítulos.
-- Progresso visual.
-- Nome do capítulo quando pertinente.
+- Transform e opacity.
+- Animações eficientes.
+- Carregamento otimizado.
+- Fontes locais.
+- Imagens responsivas.
+- Pré-carregamento inteligente.
+- Ausência de memory leaks.
+- Limpeza de listeners.
+- Cancelamento de animações.
+- Baixo custo de renderização.
 
-### Mapa de capítulos
+Evitar efeitos pesados de blur, filtros e WebGL sem justificativa.
 
-Criar um menu que permita saltar para qualquer capítulo.
+O objetivo é obter fluidez próxima de 60 FPS em dispositivos compatíveis.
 
-### Notas do apresentador
+Não declarar garantias de FPS sem medição.
 
-Criar um painel de notas com conteúdo de apoio para cada cena.
+# 13. ACESSIBILIDADE
 
-Essas notas não devem aparecer na projeção durante a apresentação normal.
+Garantir:
 
-Preferir janela separada para notas, com sincronização apropriada quando tecnicamente possível.
-
-Fornecer fallback para casos em que o navegador bloqueie janelas adicionais.
-
-### Estados
-
-Implementar corretamente:
-
-- Início da apresentação.
-- Avanço.
-- Retorno.
-- Navegação direta.
-- Finalização.
-- Reinício.
-- Saída do fullscreen.
-- Navegação durante uma animação.
-
-Impedir que múltiplos comandos rápidos deixem o estado visual inconsistente.
-
-### Modo exploração
-
-Criar uma alternativa para visitantes navegarem pelo conteúdo sem depender do apresentador.
-
-Permitir explorar capítulos, abrir detalhes e consultar fontes.
-
-Não prejudicar o modo apresentação ao implementar esse recurso.
-
-# 7. DESIGN RESPONSIVO
-
-A aplicação deve funcionar em:
-
-- Projetores e telões 16:9.
-- Monitores desktop.
-- Notebooks.
-- Tablets.
-- Celulares.
-
-O formato 16:9 é prioritário para o modo apresentação, mas não deve haver distorção ou corte indevido de conteúdo.
-
-Levar em consideração a área segura para projeção e a legibilidade à distância.
-
-Em dispositivos móveis, reorganizar composições editoriais mantendo a identidade visual.
-
-Não reduzir simplesmente toda a apresentação desktop para caber no celular.
-
-Testar diferentes proporções e resoluções.
-
-# 8. CONTEÚDO, FOTOGRAFIAS E DIREITOS
-
-Utilizar conteúdo historicamente responsável.
-
-Toda informação factual importante deve ser verificável.
-
-Criar uma estrutura centralizada com:
-
-- Título.
-- Texto.
-- Data.
-- Capítulo.
-- Descrição da cena.
-- Fonte.
-- URL.
-- Créditos.
-- Texto alternativo das imagens.
-
-Priorizar imagens de qualidade com licença adequada.
-
-Não utilizar fotografias protegidas sem verificar as condições de uso.
-
-Não considerar uma fotografia livre apenas porque aparece em uma pesquisa na internet.
-
-Manter um inventário de ativos e suas licenças.
-
-Quando não houver imagem autorizada, usar uma composição visual alternativa de qualidade, sem fingir que é registro histórico autêntico.
-
-Criar uma seção de referências acessível ao público.
-
-Não incluir citações ou estatísticas fabricadas.
-
-Diferenciar claramente fatos documentados, descrições e interpretações.
-
-# 9. PERFORMANCE E CONFIABILIDADE
-
-A apresentação deve ser confiável em ambiente escolar.
-
-Implementar:
-
-- Carregamento otimizado de imagens.
-- Pré-carregamento da próxima cena.
-- Recursos críticos disponíveis localmente.
-- Tratamento de erros de carregamento.
-- Fontes locais ou alternativas seguras.
-- Renderização eficiente.
-- Code splitting quando necessário.
-- Limpeza de efeitos e listeners.
-- Redução de animações pesadas em dispositivos fracos.
-- Evitar memory leaks.
-
-Objetivo: experiência próxima de 60 FPS em hardware compatível, sem prometer estabilidade impossível em todas as máquinas.
-
-Depois do carregamento inicial, a navegação principal deve funcionar sem conexão à internet.
-
-Se houver recursos externos opcionais, oferecer fallback.
-
-Não depender de CDNs ou APIs externas durante a apresentação.
-
-# 10. ACESSIBILIDADE
-
-Implementar:
-
+- Contraste adequado.
 - Navegação por teclado.
 - Foco visível.
-- Semântica correta.
-- Contraste adequado.
-- Texto alternativo.
-- Suporte a movimento reduzido.
-- Controles com rótulos acessíveis.
-- Botões com área de interação adequada.
-- Boa legibilidade em projeção.
+- Elementos semânticos.
+- Textos alternativos.
+- Controle de movimento.
+- Suporte a prefers-reduced-motion.
+- Informações acessíveis sem animação.
+- Controles compreensíveis.
+- Diálogos corretamente gerenciados.
 
-Não esconder informações essenciais exclusivamente em hover.
+Não ocultar informações essenciais exclusivamente em hover.
 
-Garantir que a experiência continue compreensível com animações desativadas.
+# 14. FUNCIONAMENTO OFFLINE
 
-# 11. ARQUITETURA DO CÓDIGO
+A apresentação deve funcionar sem internet após o carregamento ou instalação dos recursos necessários.
 
-Organizar o código de forma clara.
+Preservar o sistema de cache existente.
 
-Estrutura conceitual sugerida:
+Incluir localmente os recursos críticos.
 
-src/
-  app/
-  components/
-  chapters/
-  scenes/
-  animations/
-  hooks/
-  content/
-  assets/
-  styles/
-  utils/
-  types/
+Verificar:
 
-Adaptar conforme o projeto real.
+- Fontes.
+- Imagens essenciais.
+- Scripts.
+- Estilos.
+- Conteúdo.
+- Navegação.
+- Interações.
 
-Separar a lógica de navegação da lógica de animação.
+Não depender de APIs externas durante a apresentação.
 
-Criar design tokens compartilhados.
+Oferecer fallback para recursos opcionais.
 
-Centralizar a configuração de transições.
+# 15. ARQUITETURA
 
-Utilizar TypeScript com tipagem estrita.
+Preservar a separação entre:
 
-Não criar componentes gigantescos.
+- Componentes.
+- Capítulos.
+- Conteúdo.
+- Hooks.
+- Animações.
+- Estilos.
+- Tipos.
+- Recursos.
+- Testes.
 
-Não duplicar textos ou lógica.
+Auditar os arquivos existentes:
 
-Não adicionar comentários óbvios; documentar decisões importantes.
+- App.tsx
+- Scenes.tsx
+- ScrollReveal.tsx
+- SceneFrame.tsx
+- Dialog.tsx
+- usePresentation.ts
+- useTypewriter.ts
+- chapters.ts
+- participants.ts
+- presentationSettings.ts
+- sources.ts
+- global.css
+- transitions.ts
 
-# 12. QUALIDADE DE UI/UX
+Não duplicar estados.
 
-Cada capítulo deve ter uma composição visual intencional.
+Não criar controladores de scroll concorrentes.
 
-Não quero a mesma tela com imagem à esquerda e texto à direita repetida oito vezes.
+Não acumular CSS corretivo sobre regras antigas defeituosas.
 
-Criar variedade:
+Centralizar design tokens e configurações de animação.
 
-- Hero cinematográfico.
-- Timeline histórica.
-- Galeria editorial.
-- Narrativa em imagens.
-- Mural fotográfico.
-- Retrato em tela cheia.
-- Conteúdo de contraste dramático.
-- Encerramento minimalista.
+Implementar componentes reutilizáveis e bem tipados.
 
-As transições devem estabelecer relações entre os temas.
+# 16. AUDITORIA VISUAL OBRIGATÓRIA
 
-Usar o espaço vazio como parte do design.
+Utilizar ferramentas de navegador e Playwright.
 
-Evitar excesso de informações por cena.
+Inspecionar os nove capítulos e suas cenas.
 
-O apresentador deverá complementar a narrativa oralmente.
+Testar:
 
-# 13. CRITÉRIOS DE ACEITAÇÃO
+- Rolagem lenta.
+- Rolagem rápida.
+- Retorno para cima.
+- Reveals intermediários.
+- Cards abertos.
+- Cards fechados.
+- Troca rápida de cards.
+- Digitação em andamento.
+- Digitação concluída.
+- Diálogos.
+- Participantes.
+- Modo apresentação.
+- Modo automático.
+- Movimento reduzido.
+- Recursos offline.
 
-O trabalho somente estará pronto quando:
+Capturar estados intermediários, não apenas páginas totalmente carregadas.
 
-1. Todos os oito capítulos estiverem implementados.
-2. As cenas internas funcionarem.
-3. A navegação por teclado estiver correta.
-4. O modo apresentação estiver funcional.
-5. O layout funcionar em desktop e mobile.
-6. As transições forem suaves e consistentes.
-7. As fotografias e fontes carregarem corretamente.
-8. Não houver erros relevantes de console.
-9. O projeto compilar sem erros.
-10. As informações históricas tiverem fontes verificáveis.
-11. As regras de acessibilidade forem respeitadas.
-12. O conteúdo principal funcionar offline após o carregamento.
-13. O capítulo de Mario Balotelli estiver completo.
-14. A navegação rápida não quebrar a apresentação.
-15. O resultado final apresentar uma identidade visual própria e coerente.
+### Detectar colisões
 
-# 14. PROCESSO DE EXECUÇÃO
+Utilizar bounding boxes e inspeção visual para detectar:
 
-Execute o desenvolvimento por etapas lógicas:
+- Sobreposição de textos.
+- Imagens invadindo conteúdo.
+- Botões cobertos.
+- Elementos fora do viewport.
+- Controles interceptados.
+- Problemas de z-index.
+- Quebras tipográficas.
 
-Fase 1 — Auditoria do ambiente e planejamento.
+Não confiar somente na ausência de overflow horizontal.
 
-Fase 2 — Design system e arquitetura.
+Uma página pode apresentar colisões mesmo sem overflow.
 
-Fase 3 — Navegação e motor de apresentação.
+# 17. TESTES AUTOMATIZADOS
 
-Fase 4 — Implementação das cenas e capítulos.
+Executar:
 
-Fase 5 — Animações e direção de arte.
+- Build.
+- TypeScript.
+- Testes unitários.
+- Testes E2E.
+- Testes de acessibilidade disponíveis.
+- Testes de funcionamento offline.
 
-Fase 6 — Conteúdo histórico, revisão e referências.
+Preservar cobertura funcional existente.
 
-Fase 7 — Responsividade, acessibilidade e otimização.
+Adaptar testes antigos quando a arquitetura mudar, sem enfraquecer os critérios.
 
-Fase 8 — Testes e validação final.
+Adicionar cobertura para:
 
-Utilize ferramentas de inspeção visual e testes de navegador, caso estejam disponíveis.
+1. Scroll progressivo.
+2. Ordem das revelações.
+3. Digitação.
+4. Cancelamento.
+5. Troca rápida de cards.
+6. Navegação por teclado.
+7. Nove capítulos.
+8. Participantes.
+9. Modo automático.
+10. Redução de movimento.
+11. Ausência de camadas interceptando cliques.
+12. Estabilidade visual.
 
-Capture e examine resultados renderizados em diferentes resoluções.
+Não declarar resultados de testes que não foram executados.
 
-Corrija problemas observados, não apenas erros identificados pelo compilador.
+# 18. EXECUÇÃO E ENTREGA
 
-Ao finalizar, entregue um resumo contendo:
+Execute em etapas:
 
-- O que foi implementado.
-- Tecnologias utilizadas.
-- Como executar localmente.
-- Como iniciar a apresentação.
-- Como editar o conteúdo.
-- Como adicionar cenas.
-- Como executar testes.
-- Limitações existentes.
-- Pendências de fontes ou licenciamento de imagens.
+1. Inspecionar o projeto atual.
+2. Estudar o repositório de referência.
+3. Auditar problemas reais.
+4. Definir arquitetura e direção visual.
+5. Refatorar os componentes necessários.
+6. Implementar narrativa progressiva.
+7. Integrar digitação aos cards.
+8. Refinar os nove capítulos.
+9. Corrigir tipografia e layout.
+10. Integrar apresentação e navegação.
+11. Otimizar performance.
+12. Validar responsividade.
+13. Executar testes automatizados.
+14. Inspecionar visualmente.
+15. Corrigir regressões.
+16. Documentar os resultados.
 
-Não declare testes aprovados sem executá-los.
+Não interrompa desnecessariamente a execução para relatar pequenas alterações intermediárias.
 
-Não declare funcionalidades implementadas se estiverem apenas planejadas.
+Continue enquanto houver trabalho executável.
 
-Não crie commits, pushes ou deploys sem autorização.
+Não criar commits, pushes ou deploys sem autorização.
 
-# 15. DIRETRIZ FINAL DE CRIATIVIDADE
+Ao finalizar, forneça:
 
-Este projeto não deve parecer uma demonstração de biblioteca de animação.
+- Resumo das alterações.
+- Componentes modificados.
+- Funcionalidades implementadas.
+- Resultados dos testes.
+- Problemas corrigidos.
+- Limitações encontradas.
+- Orientações para apresentação no palco.
 
-Ele deve parecer uma obra digital com propósito educacional.
+# CRITÉRIO FINAL DE QUALIDADE
 
-Priorize a emoção da narrativa, o respeito à história e a clareza da mensagem.
+O projeto só estará pronto quando o apresentador conseguir percorrer toda a narrativa naturalmente.
 
-O público deverá perceber uma conexão natural entre história, cultura, gastronomia, esporte, resistência e atualidade.
+Ele deve poder:
 
-Use as ferramentas de frontend disponíveis no ambiente para elevar o resultado, mas não comprometa acessibilidade, confiabilidade ou performance.
+- Rolar e revelar informações progressivamente.
+- Parar para explicar.
+- Continuar rolando.
+- Abrir um assunto.
+- Acompanhar a digitação.
+- Completar a escrita quando desejar.
+- Fechar o assunto.
+- Retomar exatamente de onde parou.
+- Navegar entre capítulos.
+- Concluir a apresentação sem problemas visuais ou técnicos.
 
-Quero uma implementação real, navegável, impressionante e pronta para ser apresentada ao vivo.
+O resultado deve ser original, organizado, expressivo e emocionalmente envolvente.
 
-**Comece analisando o ambiente e depois implemente a experiência completa.**
+**RAÍZES — ALÉM DA COR não deve parecer um site que apresenta informações. Deve parecer uma história que ganha vida enquanto é contada.**
+
+Implemente a experiência completa diretamente no projeto existente.

@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { chapters, scenes } from "../../src/content/chapters";
 import { participants } from "../../src/content/participants";
+import { narrativeBeats } from "../../src/content/narrativeBeats";
 import { chapterStart } from "../../src/utils/navigation";
 
 test("documento contínuo mantém os nove capítulos e permite navegação por menu", async ({ page }) => {
@@ -25,48 +26,43 @@ test("documento contínuo mantém os nove capítulos e permite navegação por m
   await expect(page.locator("#participantes h1")).toHaveText("Quem fez acontecer");
 });
 
+test("marcos narrativos configurados existem no documento e mantêm ordem editorial", async ({ page }) => {
+  await page.goto("/");
+  const markers = Object.values(narrativeBeats).flatMap(beats => beats.map(beat => beat.id));
+  for (const id of markers) await expect(page.locator(`[data-narrative-beat="${id}"]`), id).toHaveCount(1);
+  const balotelli = await page.locator("#balotelli-jogador [data-narrative-beat]").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-narrative-beat")));
+  expect(balotelli.indexOf("balotelli-jogador-title")).toBeLessThan(balotelli.indexOf("balotelli-jogador-portrait"));
+});
+
 test("rolagem manual e setas compartilham o índice narrativo", async ({ page }) => {
   await page.goto("/");
-  await page.locator(`#${scenes[3].id}`).scrollIntoViewIfNeeded();
+  await page.locator(`#${scenes[3].id} .culture-mural`).scrollIntoViewIfNeeded();
   await expect(page).toHaveURL(/#scene=3$/);
+  const before = await page.evaluate(() => scrollY);
   await page.keyboard.press("ArrowRight");
-  await expect(page).toHaveURL(/#scene=4$/);
-  await expect(page.locator(`#${scenes[4].id} h1`)).toBeVisible();
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(before + 80);
+  await expect(page).toHaveURL(/#scene=3$/);
+  const afterNext = await page.evaluate(() => scrollY);
   await page.keyboard.press("ArrowLeft");
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(afterNext - 80);
   await expect(page).toHaveURL(/#scene=3$/);
 });
 
-test("modo apresentador revela itens por etapa antes de avançar a cena", async ({ page }) => {
+test("modo apresentação mantém a rolagem natural e remove os controles redundantes", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Explorar capítulos" }).click();
-  await page.getByRole("button", { name: /Modo apresentação/ }).click();
-  await page.locator("#trajetorias").scrollIntoViewIfNeeded();
-  await expect(page.locator("#trajetorias")).toHaveAttribute("data-story-index", "2");
-  const first = page.locator("#trajetorias .timeline-entry").first();
-  const second = page.locator("#trajetorias .timeline-entry").nth(1);
-  await expect(first).not.toBeVisible();
-  await expect(second).not.toBeVisible();
-  await page.keyboard.press("ArrowRight");
-  await expect(first).toBeVisible();
-  await expect(second).not.toBeVisible();
-  await page.keyboard.press("Space");
-  await expect(second).toBeVisible();
-  await page.keyboard.press("ArrowLeft");
-  await expect(second).not.toBeVisible();
-});
-
-test("modo automático permite pausar, continuar e completar a cena", async ({ page }) => {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Explorar capítulos" }).click();
-  await page.getByRole("button", { name: /Modo apresentação/ }).click();
-  await page.locator("#trajetorias").scrollIntoViewIfNeeded();
-  await page.getByRole("button", { name: /Alternar modo de revelação/ }).click();
-  await expect(page.getByRole("button", { name: "Pausar revelação automática" })).toBeVisible();
-  await page.getByRole("button", { name: "Pausar revelação automática" }).click();
-  await expect(page.getByRole("button", { name: "Continuar revelação automática" })).toBeVisible();
-  await page.getByRole("button", { name: "Completar revelações desta cena" }).click();
-  await expect(page.getByRole("button", { name: /Automático, etapa 4 de 4/ })).toBeVisible();
-  await page.getByRole("button", { name: "Continuar revelação automática" }).click();
+  await page.getByRole("button", { name: "Iniciar experiência" }).click();
+  await expect(page.locator(".site-header")).toHaveCount(0);
+  await expect(page.locator(".presentation-bar")).toHaveCount(0);
+  await expect(page.locator(".reveal-controls")).toHaveCount(0);
+  await expect(page.locator("#abertura h1")).toBeVisible();
+  await expect.poll(() => page.locator("#abertura").evaluate(node => Math.abs(node.getBoundingClientRect().top))).toBeLessThan(2);
+  expect(await page.evaluate(() => getComputedStyle(document.documentElement).overflowY)).not.toBe("hidden");
+  expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeGreaterThan(await page.evaluate(() => innerHeight));
+  await page.mouse.move(700, 500);
+  await page.mouse.wheel(0, 1000);
+  await expect(page).not.toHaveURL(/#scene=0$/);
+  await expect(page.locator(".reveal-controls")).toHaveCount(0);
+  await expect(page.getByText(/Apresentador.*etapa/i)).toHaveCount(0);
 });
 
 test("modais digitam, completam, reiniciam, pausam e cancelam ao fechar", async ({ page }) => {
@@ -100,8 +96,6 @@ test("um modal bloqueia as teclas da apresentação e a seleção não mistura t
   await page.getByRole("button", { name: /Modo apresentação/ }).click();
   await page.locator("#trajetorias").scrollIntoViewIfNeeded();
   await expect(page.locator("#trajetorias")).toHaveAttribute("data-story-index", "2");
-  await page.getByRole("button", { name: "Avançar revelação" }).click();
-  await expect(page.locator("#trajetorias .timeline-entry").first()).toBeVisible();
   await page.locator("#trajetorias .timeline-entry").first().click();
   const dialog = page.getByRole("dialog");
   const currentIndex = await page.locator("#trajetorias").getAttribute("data-story-index");
@@ -109,7 +103,6 @@ test("um modal bloqueia as teclas da apresentação e a seleção não mistura t
   await expect(page.locator("#trajetorias")).toHaveAttribute("data-story-index", currentIndex!);
   await dialog.getByRole("button", { name: "Fechar painel" }).click();
   await expect(dialog).not.toBeVisible();
-  await page.getByRole("button", { name: "Avançar revelação" }).click();
   await page.locator("#trajetorias .timeline-entry").nth(1).click();
   await expect(dialog.locator("h2")).toContainText("Palmares");
 });

@@ -1,4 +1,4 @@
-import { useEffect, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import {
   ArrowLeft,
@@ -35,12 +35,28 @@ export default function App() {
   const [panel, setPanel] = useState<Panel>(null);
   const [detail, setDetail] = useState<Entry | null>(null);
   const [presenting, setPresenting] = useState(false);
-  const [chromeVisible, setChromeVisible] = useState(true);
   const [notice, setNotice] = useState("");
-  const [revealMode, setRevealMode] = useState<"presenter" | "auto">("presenter");
-  const [revealStep, setRevealStep] = useState(0);
-  const [autoPaused, setAutoPaused] = useState(false);
   const typewriter = useTypewriter(detail?.detail ?? "", !!detail, presentationSettings.typingCharactersPerSecond);
+  const navigateNarrativeBeat = useCallback((delta: number) => {
+    const candidates = [...document.querySelectorAll<HTMLElement>("[data-narrative-beat]")]
+      .filter((element) => !element.querySelector("[data-narrative-beat]") && !element.closest("[inert]"));
+    if (!candidates.length) return false;
+    const marker = window.innerHeight * 0.46;
+    let current = candidates.findIndex((element) => {
+      const rect = element.getBoundingClientRect();
+      return rect.top <= marker && rect.bottom > marker;
+    });
+    if (current < 0) {
+      current = candidates.reduce((best, element, index) => {
+        const distance = Math.abs(element.getBoundingClientRect().top - marker);
+        return distance < best.distance ? { index, distance } : best;
+      }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+    }
+    const target = candidates[Math.max(0, Math.min(candidates.length - 1, current + delta))];
+    if (target === candidates[current]) return false;
+    target.scrollIntoView({ behavior: reducedMotionPreference() ? "instant" : "smooth", block: "center" });
+    return true;
+  }, []);
   const { index, go, step, observe } = usePresentation(
     isNotes,
     !!panel || !!detail,
@@ -48,6 +64,7 @@ export default function App() {
       setPanel(null);
       setDetail(null);
     },
+    navigateNarrativeBeat,
   );
   const offline = useOffline();
   const reduced = useReducedMotion();
@@ -57,7 +74,6 @@ export default function App() {
   const programmaticScroll = useRef(false);
   const positionedInitialScene = useRef(false);
   const scrollReleaseTimer = useRef<number | undefined>(undefined);
-  const keyboardNavigation = useRef(false);
   useEffect(() => {
     if (passiveScroll.current) { passiveScroll.current = false; return; }
     const target = document.getElementById(scenes[index]?.id);
@@ -68,7 +84,6 @@ export default function App() {
     // a competing scroll back through the document.
     const initialPosition = !positionedInitialScene.current;
     positionedInitialScene.current = true;
-    if (initialPosition && index > 0) setChromeVisible(false);
     programmaticScroll.current = true;
     window.clearTimeout(scrollReleaseTimer.current);
     target.scrollIntoView({
@@ -113,39 +128,6 @@ export default function App() {
       window.clearTimeout(scrollReleaseTimer.current);
     };
   }, [index, observe]);
-  const narrativeStep = (delta: number) => {
-    const max = scene.items?.length ?? 0;
-    if (delta > 0 && presenting && revealMode === "presenter" && revealStep < max) { setRevealStep(v => v + 1); return; }
-    if (delta < 0 && presenting && revealMode === "presenter" && revealStep > 0) { setRevealStep(v => v - 1); return; }
-    setRevealStep(0); step(delta);
-  };
-  useEffect(() => { setRevealStep(0); }, [index]);
-  useEffect(() => {
-    if (!presenting || revealMode !== "auto" || autoPaused || panel || detail) return;
-    const timer = window.setTimeout(() => {
-      if (revealStep < (scene.items?.length ?? 0)) setRevealStep(v => v + 1);
-      else { setRevealStep(0); step(1); }
-    }, presentationSettings.automaticStepDelayMs);
-    return () => window.clearTimeout(timer);
-  }, [presenting, revealMode, autoPaused, revealStep, scene, panel, detail]);
-  const captureNarrativeKeys = (e: ReactKeyboardEvent) => {
-    if (!presenting || panel || detail || e.altKey || e.ctrlKey || e.metaKey) return;
-    if (e.key === "ArrowRight" || e.code === "Space" || e.key === "ArrowLeft") {
-      e.preventDefault(); e.stopPropagation(); narrativeStep(e.key === "ArrowLeft" ? -1 : 1);
-    }
-  };
-  useEffect(() => {
-    if (!presenting || !chromeVisible) return;
-    const timer = window.setTimeout(() => setChromeVisible(false), 2600);
-    return () => window.clearTimeout(timer);
-  }, [presenting, chromeVisible]);
-  useEffect(() => {
-    const hideChromeOnScroll = () => {
-      setChromeVisible(false);
-    };
-    window.addEventListener("scroll", hideChromeOnScroll, { passive:true });
-    return () => window.removeEventListener("scroll", hideChromeOnScroll);
-  }, [presenting]);
   useEffect(() => {
     const next = scenes[index + 1];
     const ids = [
@@ -200,29 +182,27 @@ export default function App() {
   }
   function start() {
     setPresenting(true);
-    setChromeVisible(false);
-    step(1);
+    if (index !== 0) {
+      go(0);
+      return;
+    }
+    programmaticScroll.current = true;
+    window.clearTimeout(scrollReleaseTimer.current);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.getElementById(scenes[0].id)?.scrollIntoView({ behavior: "instant", block: "start" });
+      scrollReleaseTimer.current = window.setTimeout(() => { programmaticScroll.current = false; }, 120);
+    }));
   }
   if (isNotes)
     return <PresenterNotes scene={scene} index={index} step={step} />;
   return (
     <div
-      className={`app story-mode ${presenting ? "is-presenting" : ""} ${!chromeVisible ? "chrome-hidden" : ""}`}
-      onKeyDownCapture={(event) => {
-        keyboardNavigation.current = true;
-        captureNarrativeKeys(event);
-      }}
-      onPointerDownCapture={() => { keyboardNavigation.current = false; }}
-      onPointerMove={() => presenting && setChromeVisible(true)}
-      onKeyDown={() => setChromeVisible(true)}
-      onFocusCapture={() => {
-        if (keyboardNavigation.current) setChromeVisible(true);
-      }}
+      className={`app story-mode ${presenting ? "is-presenting" : ""}`}
     >
       <a className="skip-link" href="#main-content">
         Ir para o conteúdo
       </a>
-      <header className="site-header">
+      {!presenting && <header className="site-header">
         <button
           className="brand"
           aria-label="RAÍZES — voltar ao início"
@@ -278,17 +258,17 @@ export default function App() {
             <Expand size={18} />
           </button>
         </nav>
-      </header>
+      </header>}
       <main id="main-content" tabIndex={-1} className="story-document">
         {scenes.map((storyScene, storyIndex) => <section id={storyScene.id} data-story-scene data-story-index={storyIndex} className={`story-section story-${storyScene.layout}`} key={storyScene.id}>
           <ScrollReveal className="story-reveal" direction={storyScene.layout === "player" ? "left" : "up"} threshold={.12}>
-            <SceneFrame reduced={!!reduced} layout={storyScene.layout} revealStep={storyIndex === index ? revealStep : 99}>
+            <SceneFrame reduced={!!reduced} layout={storyScene.layout}>
               <SceneView scene={storyScene} onDetail={setDetail} onStart={start} onSources={() => setPanel("sources")} onRestart={() => { go(0); setPresenting(false); }} />
             </SceneFrame>
           </ScrollReveal>
         </section>)}
       </main>
-      <footer className="presentation-bar">
+      {!presenting && <footer className="presentation-bar">
         <button
           className="chapter-indicator"
           onClick={() => setPanel("map")}
@@ -323,7 +303,7 @@ export default function App() {
             className="icon-button nav-arrow"
             aria-label="Cena anterior"
             disabled={index === 0}
-            onClick={() => narrativeStep(-1)}
+            onClick={() => step(-1)}
           >
             <ArrowLeft size={18} />
           </button>
@@ -331,13 +311,13 @@ export default function App() {
             className="icon-button nav-arrow"
             aria-label="Próxima cena"
             disabled={index === scenes.length - 1}
-            onClick={() => narrativeStep(1)}
+            onClick={() => step(1)}
           >
             <ArrowRight size={18} />
           </button>
         </div>
-      </footer>
-      <div className="utility-bar">
+      </footer>}
+      {!presenting && <div className="utility-bar">
         <span
           className={`offline-status ${offline === "ready" ? "ready" : ""}`}
         >
@@ -356,7 +336,7 @@ export default function App() {
           <Info size={13} />
           Como navegar
         </button>
-      </div>
+      </div>}
       <div className="sr-only" role="status" aria-live="polite">
         Capítulo {scene.chapter + 1}: {chapter.short}. Cena {index + 1}:{" "}
         {scene.title}
@@ -438,8 +418,10 @@ export default function App() {
           {panel === "help" && (
             <>
               <p className="dialog-intro">
-                Para apresentar, abra as notas no computador e coloque a janela
-                principal no projetor. A tela cheia é opcional.
+                Na apresentação, role a página para acompanhar a narrativa. As
+                setas e a barra de espaço também percorrem as cenas. Abra as
+                notas no computador e coloque a janela principal no projetor;
+                tela cheia é opcional.
               </p>
               <dl className="shortcuts">
                 <div>
@@ -487,14 +469,6 @@ export default function App() {
           )}
         </Dialog>
       )}
-      {presenting && <div className="reveal-controls" aria-label="Controles de apresentação">
-        <button className="reveal-mode" onClick={() => { setRevealMode(m => m === "presenter" ? "auto" : "presenter"); setAutoPaused(false); }} aria-label={`Alternar modo de revelação. ${revealMode === "presenter" ? "Apresentador" : "Automático"}, etapa ${revealStep} de ${scene.items?.length ?? 0}`}>{revealMode === "presenter" ? "Apresentador" : "Automático"} · etapa {revealStep}/{scene.items?.length ?? 0}</button>
-        {revealMode === "auto" && <>
-          <button className="reveal-control" onClick={() => setAutoPaused(value => !value)} aria-label={autoPaused ? "Continuar revelação automática" : "Pausar revelação automática"}>{autoPaused ? "Continuar" : "Pausar"}</button>
-          <button className="reveal-control" onClick={() => { setRevealStep(scene.items?.length ?? 0); setAutoPaused(true); }} aria-label="Completar revelações desta cena">Completar</button>
-        </>}
-        {revealMode === "presenter" && <button className="reveal-control" onClick={() => narrativeStep(1)} aria-label="Avançar revelação">Avançar <ArrowRight size={14}/></button>}
-      </div>}
       {detail && (
         <Dialog title={detail.title} onAdvance={typewriter.complete} onClose={() => setDetail(null)}>
           <div className="detail-body">
@@ -514,4 +488,8 @@ export default function App() {
       )}
     </div>
   );
+}
+
+function reducedMotionPreference() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }

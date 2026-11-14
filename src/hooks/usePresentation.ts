@@ -23,6 +23,7 @@ export function usePresentation(
   isNotes: boolean,
   blocked: boolean,
   onRemote: () => void,
+  onStoryStep?: (delta: number) => boolean,
 ) {
   const [index, setIndex] = useState(() =>
     parseScene(
@@ -35,6 +36,8 @@ export function usePresentation(
   current.current = index;
   const remoteCallback = useRef(onRemote);
   remoteCallback.current = onRemote;
+  const storyStep = useRef(onStoryStep);
+  storyStep.current = onStoryStep;
   const key = `raizes-scene-${presentationSession}`;
   const commandKey = `raizes-command-${presentationSession}`;
   const go = useCallback(
@@ -153,7 +156,8 @@ export function usePresentation(
       if (delta) {
         e.preventDefault();
         if (isNotes) send({ type: "step", delta });
-        else setIndex((i) => navigate(i, delta, scenes.length));
+        else if (!storyStep.current?.(delta))
+          setIndex((i) => navigate(i, delta, scenes.length));
         return;
       }
       const destination =

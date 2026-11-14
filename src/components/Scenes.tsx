@@ -5,6 +5,13 @@ import type { Scene, Entry } from "../types/content";
 import { Photo } from "./Photo";
 import { titleTransition, wordTransition } from "../animations/transitions";
 import { ScrollReveal } from "./ScrollReveal";
+import { NarrativeBeat } from "./NarrativeBeat";
+import { ScrollMedia } from "./ScrollMedia";
+
+function itemBeatId(sceneId: string, item: Entry) {
+  const slug = item.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  return `${sceneId}-item-${item.source}-${slug}`;
+}
 interface Props {
   scene: Scene;
   onDetail: (entry: Entry) => void;
@@ -20,6 +27,7 @@ export function SceneView({
   onRestart,
 }: Props) {
   const reduced = useReducedMotion();
+  const [selectedMoment, setSelectedMoment] = useState<string | null>(null);
   const title = (
     <motion.h1 {...titleTransition(!!reduced)}>
       {s.layout === "hero"
@@ -37,7 +45,7 @@ export function SceneView({
     </motion.h1>
   );
   const heading = (
-    <ScrollReveal className="scene-heading-reveal" threshold={0.2}>
+    <NarrativeBeat id={`${s.id}-title`} className="scene-heading-reveal">
       <div className="scene-heading">
         <p className="eyebrow">
           <span className="tiny-line" />
@@ -46,7 +54,7 @@ export function SceneView({
         {title}
         <p className="scene-intro">{s.body}</p>
       </div>
-    </ScrollReveal>
+    </NarrativeBeat>
   );
   if (s.layout === "hero")
     return (
@@ -54,11 +62,14 @@ export function SceneView({
         <Photo id={s.image} priority className="hero-photo" />
         <div className="hero-shade" />
         <div className="hero-copy">
+          <NarrativeBeat id="abertura-title" className="hero-title-beat">
           <p className="eyebrow">
             <span className="gold-dot" aria-hidden="true" />
             {s.kicker}
           </p>
           {title}
+          </NarrativeBeat>
+          <NarrativeBeat id="abertura-invitation" className="hero-invitation">
           <p className="hero-subtitle">{s.subtitle}</p>
           <div className="hero-actions">
             <button className="primary-button" aria-label="Iniciar experiência" onClick={onStart}>
@@ -67,6 +78,7 @@ export function SceneView({
               <ArrowRight size={19} />
             </button>
           </div>
+          </NarrativeBeat>
         </div>
         <div className="hero-caption" aria-hidden="true">
           <span>RAÍZES — ALÉM DA COR</span>
@@ -78,10 +90,10 @@ export function SceneView({
     return (
       <section className="scene timeline-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="timeline">
+        <NarrativeBeat id="trajetorias-timeline" className="story-content-reveal"><div className="timeline">
           {s.items?.map((item, i) => (
+            <ScrollReveal key={item.source} narrativeBeat={itemBeatId(s.id, item)} beatKind="interactive" className="timeline-item-reveal" threshold={0.08}>
             <button
-              key={item.title}
               onClick={() => onDetail(item)}
               className="timeline-entry"
             >
@@ -94,20 +106,21 @@ export function SceneView({
                 Conhecer o marco <ArrowUpRight size={15} />
               </span>
             </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
+        </div></NarrativeBeat>
       </section>
     );
   if (s.layout === "mural")
     return (
       <section className="scene culture-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="culture-mural">
+        <NarrativeBeat id="cultura-mural" className="story-content-reveal"><div className="culture-mural">
           {s.items?.map((item, i) => (
+            <ScrollReveal key={item.source} narrativeBeat={itemBeatId(s.id, item)} beatKind="image" className="culture-tile-reveal" threshold={0.08}>
             <button
               className={`culture-tile culture-tile-${i}`}
               onClick={() => onDetail(item)}
-              key={item.title}
             >
               {item.image && <Photo id={item.image} />}
               <div className="tile-shade" />
@@ -118,8 +131,9 @@ export function SceneView({
               </div>
               <ArrowUpRight className="tile-arrow" size={24} />
             </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
+        </div></NarrativeBeat>
       </section>
     );
   if (s.layout === "food")
@@ -127,10 +141,7 @@ export function SceneView({
   if (s.layout === "player")
     return (
       <section className="scene player-scene">
-        <div className="player-visual">
-          <Photo id={s.image} />
-          <span className="player-number">45</span>
-        </div>
+        <NarrativeBeat id="balotelli-jogador-title" className="player-copy-reveal">
         <div className="player-copy">
           <p className="eyebrow">{s.kicker}</p>
           {title}
@@ -140,6 +151,13 @@ export function SceneView({
             Liverpool × Hull City · 25 out 2014 · retrato de referência
           </p>
         </div>
+        </NarrativeBeat>
+        <NarrativeBeat id="balotelli-jogador-portrait" className="player-visual-reveal">
+        <div className="player-visual">
+          <ScrollMedia className="player-scroll-media"><Photo id={s.image} /></ScrollMedia>
+          <span className="player-number">45</span>
+        </div>
+        </NarrativeBeat>
       </section>
     );
   if (s.layout === "event")
@@ -148,13 +166,17 @@ export function SceneView({
         <Photo id={s.image} />
         <div className="event-shade" />
         <div className="event-copy">
+          <NarrativeBeat id="balotelli-verona-date" className="event-date-beat">
           <p className="eyebrow">{s.kicker}</p>
           {title}
           <h2>{s.subtitle}</h2>
+          </NarrativeBeat>
+          <NarrativeBeat id="balotelli-verona-context" className="event-context-beat">
           <p>{s.body}</p>
           <p className="image-context">
             Imagem de referência: Liverpool × Hull City, 2014.
           </p>
+          </NarrativeBeat>
         </div>
       </section>
     );
@@ -162,28 +184,30 @@ export function SceneView({
     return (
       <section className="scene sequence-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="sequence-list">
-          {s.items?.map((item) => (
-            <article key={item.title}>
+        <NarrativeBeat id="balotelli-reacao-timeline" className="story-content-reveal"><div className="sequence-list">
+          {s.items?.map((item, i) => (
+            <ScrollReveal key={item.source + item.title} narrativeBeat={i === 2 ? "balotelli-reacao-response" : itemBeatId(s.id, item)} beatKind="interactive" threshold={0.08}>
+            <button className={`sequence-entry${selectedMoment === item.title ? " is-selected" : ""}`} onClick={() => { setSelectedMoment(item.title); onDetail(item); }}>
               <span>{item.tag}</span>
               <div>
                 <p className="eyebrow">{item.title}</p>
                 <h2>{item.text}</h2>
                 <p>{item.detail}</p>
               </div>
-            </article>
+            </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
+        </div></NarrativeBeat>
       </section>
     );
   if (s.layout === "people")
     return (
       <section className="scene people-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="people-grid">
+        <NarrativeBeat id="protagonistas-retratos" className="story-content-reveal"><div className="people-grid">
           {s.items?.map((item, i) => (
+            <ScrollReveal key={item.source} narrativeBeat={itemBeatId(s.id, item)} beatKind="image" className="person-reveal" threshold={0.08}>
             <button
-              key={item.title}
               onClick={() => onDetail(item)}
               className={`person person-${i}`}
             >
@@ -195,17 +219,19 @@ export function SceneView({
               </div>
               <ArrowUpRight className="tile-arrow" size={20} />
             </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
+        </div></NarrativeBeat>
       </section>
     );
   if (s.layout === "present")
     return (
       <section className="scene present-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="action-list">
+        <NarrativeBeat id="presente-acoes" className="story-content-reveal"><div className="action-list">
           {s.items?.map((item) => (
-            <button key={item.title} onClick={() => onDetail(item)}>
+            <ScrollReveal key={item.source} narrativeBeat={itemBeatId(s.id, item)} beatKind="interactive" threshold={0.08}>
+            <button onClick={() => onDetail(item)}>
               <span>{item.tag}</span>
               <h2>
                 {item.title}
@@ -213,27 +239,34 @@ export function SceneView({
               </h2>
               <p>{item.text}</p>
             </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
-        <p className="present-footer">
+        </div></NarrativeBeat>
+        <NarrativeBeat id="presente-transicao" className="present-transition-beat"><p className="present-footer">
           Na escola. Nas arquibancadas. Em cada escolha.
-        </p>
+        </p></NarrativeBeat>
       </section>
     );
   if (s.layout === "participants")
     return (
       <section className="scene participants-scene">
-        <p className="eyebrow">{s.kicker}</p><h1>{s.title}</h1><p className="scene-intro">{s.body}</p>
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="participants-list">{s.items?.map((item, i) => <button key={`${item.title}-${i}`} onClick={() => onDetail(item)}><span>0{i + 1}</span><div><h2>{item.title}</h2><p>{item.tag}</p><small>{item.text}</small></div><ArrowUpRight /></button>)}</div></ScrollReveal>
+        <NarrativeBeat id="participantes-title" className="scene-heading-reveal">
+          <p className="eyebrow">{s.kicker}</p><h1>{s.title}</h1>
+        </NarrativeBeat>
+        <NarrativeBeat id="participantes-context" className="statement-context-beat">
+          <p className="scene-intro">{s.body}</p>
+        </NarrativeBeat>
+        <NarrativeBeat id="participantes-equipe" className="story-content-reveal"><div className="participants-list">{s.items?.map((item, i) => <ScrollReveal key={item.source + i} narrativeBeat={itemBeatId(s.id, item)} beatKind="interactive" threshold={0.08}><button onClick={() => onDetail(item)}><span>0{i + 1}</span><div><h2>{item.title}</h2><p>{item.tag}</p><small>{item.text}</small></div><ArrowUpRight /></button></ScrollReveal>)}</div></NarrativeBeat>
       </section>
     );
   if (s.layout === "cases")
     return (
       <section className="scene cases-scene">
         {heading}
-        <ScrollReveal className="story-content-reveal" delay={0.12}><div className="cases-list">
+        <NarrativeBeat id="outros-atletas-cases" className="story-content-reveal"><div className="cases-list">
           {s.items?.map((item, i) => (
-            <button key={item.title} onClick={() => onDetail(item)}>
+            <ScrollReveal key={item.source} narrativeBeat={itemBeatId(s.id, item)} beatKind="interactive" threshold={0.08}>
+            <button onClick={() => onDetail(item)}>
               <span className="case-number">0{i + 1}</span>
               <div>
                 <p className="eyebrow">{item.tag}</p>
@@ -242,8 +275,9 @@ export function SceneView({
               </div>
               <ArrowUpRight size={30} />
             </button>
+            </ScrollReveal>
           ))}
-        </div></ScrollReveal>
+        </div></NarrativeBeat>
         <span className="case-footer">
           O silêncio também tem consequências.
         </span>
@@ -253,10 +287,14 @@ export function SceneView({
     return (
       <section className="scene closing-scene">
         <div className="closing-orbit" />
-        <p className="eyebrow">{s.kicker}</p>
-        {title}
-        <p className="closing-body">{s.body}</p>
-        <div className="closing-actions">
+        <NarrativeBeat id="encerramento-title" className="closing-title-beat">
+          <p className="eyebrow">{s.kicker}</p>
+          {title}
+        </NarrativeBeat>
+        <NarrativeBeat id="encerramento-context" className="closing-context-beat">
+          <p className="closing-body">{s.body}</p>
+        </NarrativeBeat>
+        <NarrativeBeat id="encerramento-credito" className="closing-actions-beat"><div className="closing-actions">
           <button className="primary-button" onClick={onSources}>
             Créditos e referências <ArrowUpRight size={18} />
           </button>
@@ -265,6 +303,7 @@ export function SceneView({
             Recomeçar apresentação
           </button>
         </div>
+        </NarrativeBeat>
         <p className="closing-signature">
           RAÍZES <span>— ALÉM DA COR</span>
         </p>
@@ -274,12 +313,23 @@ export function SceneView({
     <section
       className={`scene statement-scene ${s.layout === "reflection" ? "reflection-scene" : ""}`}
     >
-      <span className="statement-ornament" aria-hidden="true">
+        <span className="statement-ornament" aria-hidden="true">
         {s.layout === "reflection" ? "?" : "Á"}
       </span>
       <p className="eyebrow">{s.kicker}</p>
-      {title}
-      <p className="statement-body">{s.body}</p>
+      {s.layout === "reflection" ? (
+        <NarrativeBeat id="balotelli-reflexao-question" className="statement-copy-beat">
+          {title}
+          <p className="statement-body">{s.body}</p>
+        </NarrativeBeat>
+      ) : (
+        <>
+          <NarrativeBeat id={`${s.id}-title`} className="statement-copy-beat">{title}</NarrativeBeat>
+          <NarrativeBeat id="africas-context" className="statement-context-beat">
+            <p className="statement-body">{s.body}</p>
+          </NarrativeBeat>
+        </>
+      )}
       <span className="statement-footnote">
         {s.layout === "reflection"
           ? "RESPEITO NÃO É UM PRIVILÉGIO. É UM DIREITO."
@@ -302,9 +352,9 @@ function FoodScene({
   return (
     <section className="scene food-scene">
       {heading}
-      <ScrollReveal className="story-content-reveal" delay={0.12}><div className="food-composition">
+      <NarrativeBeat id="sabores-prato" className="story-content-reveal"><div className="food-composition">
         <div className="food-image">
-          <Photo key={item.title} id={item.image} />
+          <ScrollMedia key={item.title}><Photo id={item.image} /></ScrollMedia>
           <span className="food-image-label">SABERES QUE ALIMENTAM</span>
         </div>
         <div className="food-copy">
@@ -317,8 +367,8 @@ function FoodScene({
             Conhecer essa história <ArrowUpRight size={18} />
           </button>
         </div>
-      </div></ScrollReveal>
-      <ScrollReveal className="story-content-reveal" delay={0.2}><div className="food-tabs" role="group" aria-label="Selecionar prato">
+      </div></NarrativeBeat>
+      <NarrativeBeat id="sabores-selecao" className="story-content-reveal"><div className="food-tabs" role="group" aria-label="Selecionar prato">
         {scene.items?.map((item, i) => (
           <button
             key={item.title}
@@ -329,7 +379,7 @@ function FoodScene({
             {item.title}
           </button>
         ))}
-      </div></ScrollReveal>
+      </div></NarrativeBeat>
     </section>
   );
 }
