@@ -8,7 +8,7 @@ interface Station {
   place: string;
   title: string;
   text: string;
-  photo?: PhotoKey;
+  photo: PhotoKey;
   photoAspect?: string;
 }
 
@@ -47,28 +47,21 @@ const stations: Station[] = [
     place: "Brasil",
     title: "Religiosidades de matriz africana",
     text: "Candomblé, umbanda e outras tradições preservam nomes, cantos e práticas recriados no Brasil.",
+    photo: "caruru",
   },
   {
     id: "cult-linguagem",
     place: "Português do Brasil",
     title: "Palavras que vieram da África",
     text: "Cafuné, quitanda, moleque e samba mostram que a língua que falamos também é africana.",
+    photo: "carolina",
   },
 ];
 
 function StationCard({ station, number }: { station: Station; number: string }) {
   return (
     <article>
-      {station.photo ? (
-        <Figure photo={station.photo} aspect={station.photoAspect ?? "aspect-[4/5]"} reveal="mask" />
-      ) : (
-        <Reveal variant="mask" dur={0.9}>
-          <div className="flex aspect-[4/5] flex-col justify-between border-t-2 border-olive bg-surface p-8">
-            <span className="font-display text-[clamp(4rem,8vw,7rem)] leading-none text-olive">{number}</span>
-            <span className="kicker text-cream-dim">Tradição viva</span>
-          </div>
-        </Reveal>
-      )}
+      <Figure photo={station.photo} aspect={station.photoAspect ?? "aspect-[4/5]"} reveal="mask" />
       <Reveal variant="up" beat className="mt-6">
         <p className="kicker">
           Estação {number} · {station.place}

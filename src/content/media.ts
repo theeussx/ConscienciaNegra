@@ -1,7 +1,11 @@
 import assetManifest from "../../docs/assets.json";
+import imageVariants from "./image-variants.json";
 
 export interface Photo {
   src: string;
+  srcSet?: string;
+  width?: number;
+  height?: number;
   alt: string;
   author: string;
   license: string;
@@ -77,12 +81,16 @@ export const photos: Partial<Record<PhotoKey, Photo>> = Object.fromEntries(
   Object.entries(localAssetByPhoto).flatMap(([photoKey, assetId]) => {
     const asset = assetsById.get(assetId);
     if (!asset) return [];
+    const variant = (imageVariants as Record<string, { width: number; height: number; variants: { src: string; width: number }[] }>)[assetId];
 
     return [
       [
         photoKey,
         {
           src: asset.file,
+          srcSet: variant?.variants.map((image) => `${image.src} ${image.width}w`).join(", "),
+          width: variant?.width,
+          height: variant?.height,
           alt: asset.alt,
           author: asset.author,
           license: asset.license,

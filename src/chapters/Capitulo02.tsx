@@ -97,6 +97,7 @@ export function Capitulo02() {
         {events.map((event, i) => (
           <li
             key={`${event.title}-${i}`}
+            data-event={i}
             className={`relative grid min-h-[50dvh] gap-5 border-b border-cream/10 py-12 pl-6 first:border-t md:gap-8 md:pl-10 lg:min-h-[58dvh] lg:items-center lg:gap-14 lg:py-16 lg:pl-12 ${event.photo ? "lg:grid-cols-[minmax(12rem,0.8fr)_minmax(0,1.15fr)_minmax(15rem,1fr)]" : "lg:grid-cols-[minmax(15rem,0.38fr)_minmax(0,0.62fr)]"}`}
           >
             <div className="flex flex-col justify-center">

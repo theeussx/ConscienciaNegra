@@ -51,16 +51,16 @@ export function Capitulo04() {
         number="04"
         kicker="Culinária"
         title="Sabores que contam histórias."
-        lead="Cada prato guarda ingredientes trazidos, técnicas recriadas e sabores reinventados. Abra a história de cada um."
+        lead="Cada prato guarda ingredientes trazidos, técnicas recriadas e sabores reinventados."
       />
 
       <div className="mx-auto mt-24 grid max-w-[1480px] items-center gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
-          <Figure photo="acaraje" aspect="aspect-[16/10]" reveal="photo" />
+          <Figure photo="vatapa" aspect="aspect-[16/10]" reveal="photo" />
         </div>
         <Reveal variant="lateral" delay={0.1} className="lg:col-span-4 lg:col-start-9">
           <p className="font-display text-[clamp(1.7rem,2.4vw,2.4rem)] leading-[1.25] text-cream">
-            Quatro pratos baianos carregam heranças africanas, indígenas e europeias. O acarajé é o mais conhecido,
+            Quatro pratos baianos que carregam heranças africanas, indígenas e europeias. O acarajé é o mais conhecido,
             mas vatapá, caruru e abará completam o tabuleiro.
           </p>
         </Reveal>

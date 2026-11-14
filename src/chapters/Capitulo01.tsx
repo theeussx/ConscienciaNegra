@@ -35,7 +35,7 @@ export function Capitulo01() {
             </Reveal>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
-            <Figure photo="hero" aspect="aspect-[4/5]" reveal="photo" />
+            <Figure photo="hero" aspect="aspect-[4/5]" reveal="photo" priority />
           </div>
         </div>
       </ChapterSection>

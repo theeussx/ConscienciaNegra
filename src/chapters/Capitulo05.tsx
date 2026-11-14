@@ -58,7 +58,40 @@ export function Capitulo05() {
 
       <div className="mx-auto mt-24 grid max-w-[1480px] gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
-          <Figure photo="balotelli" aspect="aspect-[4/5]" reveal="mask" />
+          <div className="relative">
+            <Figure
+              photo="balotelli"
+              aspect="aspect-[4/5]"
+              reveal="mask"
+              fit="contain"
+              overlayClassName="bg-gradient-to-b from-transparent via-[#171513]/5 to-[#b83d2b]/85"
+              caption={false}
+            />
+            <p className="pointer-events-none absolute inset-x-0 bottom-0 px-6 pb-8 font-display text-[clamp(2.4rem,5vw,4rem)] leading-[0.95] text-cream md:px-8">
+              Ele só queria jogar futebol.
+            </p>
+          </div>
+          <div className="relative mt-8">
+            <Figure
+              photo="balotelli"
+              aspect="aspect-[4/5]"
+              reveal="photo"
+              fit="contain"
+              imageClassName="grayscale brightness-75"
+              overlayClassName="bg-gradient-to-t from-[#101820]/95 via-[#101820]/25 to-[#101820]/10"
+              caption={false}
+            />
+            <div className="pointer-events-none absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+              <p className="kicker text-[#f0a18c]">Hellas Verona × Brescia</p>
+              <h4 className="font-display mt-4 text-[clamp(2.5rem,5vw,4rem)] leading-[0.95] text-cream">
+                Verona, Itália.
+              </h4>
+              <p className="mt-4 text-xl font-semibold text-[#f0a18c]">3 de novembro de 2019.</p>
+              <p className="mt-4 max-w-[34ch] text-base leading-relaxed text-cream">
+                Durante a partida, Balotelli reagiu a manifestações racistas vindas das arquibancadas.
+              </p>
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7">
           <Reveal variant="lateral" beat>

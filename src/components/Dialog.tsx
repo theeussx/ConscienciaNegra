@@ -172,12 +172,18 @@ function DetailBody({ id }: { id: DetailId }) {
 
       {photo && (
         <figure className="m-0">
+          <picture>
+          <source type="image/webp" srcSet={photo.srcSet} sizes="(min-width: 768px) 48rem, 100vw" />
           <img
             src={photo.src}
+            width={photo.width}
+            height={photo.height}
+            decoding="async"
             alt={photo.alt}
             className="h-[min(34dvh,320px)] w-full object-cover"
             style={{ objectPosition: photo.position ?? "center" }}
           />
+          </picture>
           <figcaption className="mt-2 text-[0.95rem] leading-snug text-cream-dim">
             Foto: {photo.author} ·{" "}
             <a href={photo.licenseUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4">

@@ -103,6 +103,7 @@ export const details = {
     kicker: "Religiosidades de matriz africana",
     title: "Candomblé, umbanda e outras tradições",
     group: "cultura",
+    photo: "caruru",
     facts: [["Matrizes", "Iorubá, banta e jeje, entre outras"]],
     body:
       "Candomblé, umbanda e outras religiões de matriz africana preservam nomes, cantos, comidas e práticas de tradições africanas recriadas no Brasil.\n\nPor séculos, essas religiões foram perseguidas. A Constituição de 1988 garante a liberdade de crença e de culto, e elas seguem como expressões vivas de fé e identidade.",
@@ -112,6 +113,7 @@ export const details = {
     kicker: "Linguagem · Português do Brasil",
     title: "Palavras que vieram da África",
     group: "cultura",
+    photo: "carolina",
     facts: [["Exemplos", "cafuné, quitanda, moleque, samba"]],
     body:
       "Muitas palavras do português brasileiro têm origem em línguas africanas, sobretudo do grupo banto, como o quimbundo.\n\nCafuné, quitanda, moleque e samba fazem parte do cotidiano. A língua que falamos é também africana, e reconhecer isso faz parte da história do país.",

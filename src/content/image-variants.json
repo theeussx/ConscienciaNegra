@@ -1,0 +1,392 @@
+{
+  "hero-maracatu": {
+    "width": 1920,
+    "height": 1286,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/hero-maracatu-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/hero-maracatu-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/hero-maracatu-1920.webp"
+      }
+    ]
+  },
+  "maracatu": {
+    "width": 1920,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/maracatu-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/maracatu-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/maracatu-1920.webp"
+      }
+    ]
+  },
+  "capoeira": {
+    "width": 1920,
+    "height": 1280,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/capoeira-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/capoeira-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/capoeira-1920.webp"
+      }
+    ]
+  },
+  "samba-de-roda": {
+    "width": 1920,
+    "height": 1247,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/samba-de-roda-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/samba-de-roda-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/samba-de-roda-1920.webp"
+      }
+    ]
+  },
+  "acaraje": {
+    "width": 1920,
+    "height": 1277,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/acaraje-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/acaraje-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/acaraje-1920.webp"
+      }
+    ]
+  },
+  "vatapa": {
+    "width": 1920,
+    "height": 1440,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/vatapa-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/vatapa-1200.webp"
+      },
+      {
+        "width": 1920,
+        "src": "/images/vatapa-1920.webp"
+      }
+    ]
+  },
+  "balotelli": {
+    "width": 1046,
+    "height": 1600,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/balotelli-640.webp"
+      },
+      {
+        "width": 1046,
+        "src": "/images/balotelli-1046.webp"
+      }
+    ]
+  },
+  "balotelli-euro-2012": {
+    "width": 656,
+    "height": 569,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/balotelli-euro-2012-640.webp"
+      },
+      {
+        "width": 656,
+        "src": "/images/balotelli-euro-2012-656.webp"
+      }
+    ]
+  },
+  "balotelli-euro-2012-02": {
+    "width": 404,
+    "height": 656,
+    "variants": [
+      {
+        "width": 404,
+        "src": "/images/balotelli-euro-2012-02-404.webp"
+      }
+    ]
+  },
+  "machado-de-assis": {
+    "width": 1187,
+    "height": 1600,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/machado-de-assis-640.webp"
+      },
+      {
+        "width": 1187,
+        "src": "/images/machado-de-assis-1187.webp"
+      }
+    ]
+  },
+  "carolina-maria-de-jesus": {
+    "width": 455,
+    "height": 682,
+    "variants": [
+      {
+        "width": 455,
+        "src": "/images/carolina-maria-de-jesus-455.webp"
+      }
+    ]
+  },
+  "luiz-gama": {
+    "width": 1154,
+    "height": 1600,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/luiz-gama-640.webp"
+      },
+      {
+        "width": 1154,
+        "src": "/images/luiz-gama-1154.webp"
+      }
+    ]
+  },
+  "navio-negreiro": {
+    "width": 1001,
+    "height": 1441,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/navio-negreiro-640.webp"
+      },
+      {
+        "width": 1001,
+        "src": "/images/navio-negreiro-1001.webp"
+      }
+    ]
+  },
+  "serra-barriga": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/serra-barriga-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/serra-barriga-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/serra-barriga-1280.webp"
+      }
+    ]
+  },
+  "zumbi-monumento": {
+    "width": 1280,
+    "height": 857,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/zumbi-monumento-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/zumbi-monumento-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/zumbi-monumento-1280.webp"
+      }
+    ]
+  },
+  "jongo": {
+    "width": 1280,
+    "height": 958,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/jongo-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/jongo-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/jongo-1280.webp"
+      }
+    ]
+  },
+  "caruru": {
+    "width": 1080,
+    "height": 1301,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/caruru-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/images/caruru-1080.webp"
+      }
+    ]
+  },
+  "abara": {
+    "width": 1280,
+    "height": 721,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/abara-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/abara-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/abara-1280.webp"
+      }
+    ]
+  },
+  "vinicius": {
+    "width": 337,
+    "height": 513,
+    "variants": [
+      {
+        "width": 337,
+        "src": "/images/vinicius-337.webp"
+      }
+    ]
+  },
+  "richarlison": {
+    "width": 266,
+    "height": 403,
+    "variants": [
+      {
+        "width": 266,
+        "src": "/images/richarlison-266.webp"
+      }
+    ]
+  },
+  "conceicao-evaristo": {
+    "width": 1280,
+    "height": 854,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/conceicao-evaristo-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/conceicao-evaristo-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/conceicao-evaristo-1280.webp"
+      }
+    ]
+  },
+  "milton-santos": {
+    "width": 881,
+    "height": 673,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/milton-santos-640.webp"
+      },
+      {
+        "width": 881,
+        "src": "/images/milton-santos-881.webp"
+      }
+    ]
+  },
+  "pele": {
+    "width": 1280,
+    "height": 688,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/pele-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/pele-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/pele-1280.webp"
+      }
+    ]
+  },
+  "marcha-consciencia-negra": {
+    "width": 1280,
+    "height": 853,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/marcha-consciencia-negra-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/marcha-consciencia-negra-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/marcha-consciencia-negra-1280.webp"
+      }
+    ]
+  },
+  "desfile-maracatu": {
+    "width": 1280,
+    "height": 960,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/desfile-maracatu-640.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/images/desfile-maracatu-1200.webp"
+      },
+      {
+        "width": 1280,
+        "src": "/images/desfile-maracatu-1280.webp"
+      }
+    ]
+  }
+}

@@ -2,13 +2,13 @@
 
 /* Design tokens: a paleta é espelhada em src/design/tokens.ts. */
 @theme {
-  --color-ink: #171714;
-  --color-surface: #24231e;
-  --color-cream: #f4ecdd;
-  --color-cream-dim: #cfc6b3;
-  --color-terracotta: #c46f4f;
-  --color-olive: #848c65;
-  --color-amber: #dba66d;
+  --color-ink: #100f0d;
+  --color-surface: #211f1b;
+  --color-cream: #fff7e9;
+  --color-cream-dim: #e5dece;
+  --color-terracotta: #f18a65;
+  --color-olive: #b3bd8a;
+  --color-amber: #f4c17e;
   --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
   --font-text: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
 }
@@ -33,7 +33,6 @@
     line-height: 1.6;
     background: var(--color-ink);
     background-image: radial-gradient(circle at 15% 5%, rgb(219 166 109 / 0.06), transparent 24rem);
-    background-attachment: fixed;
     overflow-x: hidden;
   }
 
@@ -90,7 +89,6 @@
       color 0.2s,
       transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
       box-shadow 0.2s;
-    will-change: transform;
   }
 
   .btn:hover:not(:disabled) {
@@ -202,10 +200,7 @@
   }
 
   figure img {
-    transition:
-      filter 0.45s ease,
-      transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: saturate(0.92);
+    transition: opacity 0.3s ease;
   }
 
   figure > div {
@@ -227,10 +222,6 @@
     font-size: clamp(4rem, 10vw, 9rem);
     line-height: 0.8;
     pointer-events: none;
-  }
-
-  figure:hover img {
-    filter: saturate(1.08) contrast(1.025);
   }
 
   a:not(.detail-trigger),

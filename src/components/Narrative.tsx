@@ -138,6 +138,9 @@ interface FigureProps {
   parallax?: boolean;
   caption?: boolean;
   fit?: "cover" | "contain";
+  overlayClassName?: string;
+  imageClassName?: string;
+  priority?: boolean;
 }
 
 /** Fotografia com máscara de revelação, zoom suave e paralaxe discreta. Crédito sempre visível. */
@@ -149,12 +152,15 @@ export function Figure({
   parallax = true,
   caption = true,
   fit = "cover",
+  overlayClassName = "",
+  imageClassName = "",
+  priority = false,
 }: FigureProps) {
   const reduce = useReducedMotion();
   const frameRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: frameRef, offset: ["start end", "end start"] });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 70, damping: 24, mass: 0.5 });
-  const y = useTransform(smoothProgress, [0, 1], ["-5%", "5%"]);
+  const y = useTransform(smoothProgress, [0, 1], ["-3%", "3%"]);
   const item = photos[photo];
 
   return (
@@ -167,23 +173,32 @@ export function Figure({
           aria-label={item ? undefined : "Fotografia não incluída neste pacote"}
         >
           {item ? (
+            <picture>
+              <source type="image/webp" srcSet={item.srcSet} sizes="(min-width: 1024px) 50vw, 100vw" />
             <motion.img
               src={item.src}
+              width={item.width}
+              height={item.height}
               alt={item.alt}
-              loading="lazy"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
               decoding="async"
-              className={`absolute inset-0 h-full w-full max-w-none ${fit === "contain" ? "object-contain" : "object-cover"}`}
-              style={{ y: parallax && !reduce ? y : 0, objectPosition: item.position ?? "center" }}
+              className={`absolute inset-0 h-full w-full max-w-none ${fit === "contain" ? "object-contain" : "object-cover"} ${imageClassName}`}
+              style={{ y: parallax && !reduce && fit !== "contain" ? y : 0, objectPosition: item.position ?? "center" }}
               initial={reduce || fit === "contain" ? false : { scale: 1.1 }}
               whileInView={reduce || fit === "contain" ? undefined : { scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 1.6, ease }}
             />
+            </picture>
           ) : (
             <span aria-hidden="true" className="px-6 text-center text-sm text-cream-dim">
               Fotografia não incluída no pacote de origem
             </span>
           )}
+          {item && overlayClassName ? (
+            <div aria-hidden="true" className={`pointer-events-none absolute inset-0 ${overlayClassName}`} />
+          ) : null}
         </div>
       </Reveal>
       {caption && item && (
