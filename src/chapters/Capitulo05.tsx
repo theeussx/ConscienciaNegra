@@ -129,6 +129,37 @@ export function Capitulo05() {
         </ol>
       </div>
 
+      <div className="mx-auto mt-36 max-w-[1480px]">
+        <Reveal variant="fade" beat>
+          <p className="kicker">Arquivo visual · Mario Balotelli</p>
+        </Reveal>
+        <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Figure photo="balotelli_euro" aspect="aspect-[4/3]" reveal="photo" />
+          <Figure photo="balotelli_euro_action" aspect="aspect-[4/3]" reveal="mask" />
+          <Reveal variant="up" beat className="flex flex-col justify-between border border-cream/15 bg-surface p-7">
+            <div>
+              <p className="kicker">Vídeo · 1min52</p>
+              <h3 className="font-display mt-4 text-[clamp(2rem,3vw,3rem)] leading-tight text-cream">
+                O que aconteceu em Verona?
+              </h3>
+              <p className="mt-5 text-[1.1rem] leading-[1.6] text-cream-dim">
+                Reportagem do <em>The Guardian</em> sobre a interrupção da partida, a reação dos jogadores e o
+                protocolo antirracismo.
+              </p>
+            </div>
+            <a
+              href="https://www.theguardian.com/football/video/2019/nov/04/mario-balotelli-convinced-to-stay-on-pitch-after-racist-abuse-at-verona-video"
+              target="_blank"
+              rel="noreferrer"
+              className="detail-trigger mt-8"
+            >
+              Assistir reportagem
+            </a>
+            <p className="mt-4 text-[0.9rem] leading-snug text-cream-dim">Requer internet · fonte externa</p>
+          </Reveal>
+        </div>
+      </div>
+
       <Reveal variant="mask" beat dur={0.9} className="mx-auto mt-40 max-w-[1100px] border-l-2 border-terracotta pl-8">
         <p className="font-display text-[clamp(2rem,3.8vw,3.8rem)] leading-[1.12] text-cream">
           O gol ficou no placar. A pergunta ficou no ar: por que cabe ao jogador negro interromper a partida para que
