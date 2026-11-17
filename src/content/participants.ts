@@ -21,7 +21,7 @@ export interface Participant {
  */
 export const participants: Participant[] = [
   { id: "p01", name: "Mateus Henrique", role: "Desenvolvedor/Designer", description: "Desenvolvedor e designer da aplicação web.", photo: "/images/participantes/mateus.webp", portfolioUrl: "https://theeussx.vercel.app/" },
-  { id: "p02", name: "Arthur Felipe", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/arthur.webp", portfolioUrl: "https://arthurfelipe.vercel.app/" },
+  { id: "p02", name: "Arthur Felipe", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/arthur.webp", portfolioUrl: "https://arthurdevstudio.online" },
   { id: "p03", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
   { id: "p04", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
   { id: "p05", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
