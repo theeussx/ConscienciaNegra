@@ -25,7 +25,7 @@ const events: TimelineEvent[] = [
     marker: "XVI–XIX",
     when: "Séculos XVI a XIX",
     title: "Tráfico transatlântico",
-    text: "Estima-se que cerca de 4,8 milhões de africanos tenham sido trazidos à força para o Brasil, algo como 40% de todo o tráfico transatlântico. Foram arrancados de suas famílias, comunidades e línguas, e muitos não sobreviveram à travessia.",
+    text: "Milhões de africanos foram trazidos à força para o território que hoje é o Brasil pelo tráfico transatlântico. Foram arrancados de suas famílias, comunidades e línguas, e muitos não sobreviveram à travessia.",
     source: "slave",
     photo: "navio_negreiro",
   },
@@ -36,8 +36,8 @@ const events: TimelineEvent[] = [
     text: "Fugas, revoltas, irmandades religiosas, música, dança e capoeira foram formas de resistência. A liberdade era disputada todos os dias, dentro e fora das plantações.",
   },
   {
-    marker: "1605–1694",
-    when: "c. 1605 a 1694",
+    marker: "SÉC. XVII",
+    when: "Século XVII",
     title: "Quilombo dos Palmares",
     text: "Na Serra da Barriga, em Alagoas, formou-se Palmares: milhares de pessoas fugidas do cativeiro, com agricultura, comércio e governo próprio. Resistiu por décadas às expedições coloniais.",
     detail: "hist-palmares",
@@ -45,7 +45,7 @@ const events: TimelineEvent[] = [
   },
   {
     marker: "1695",
-    when: "c. 1655 a 1695",
+    when: "Morto em 1695",
     title: "Zumbi dos Palmares",
     text: "Líder de Palmares, Zumbi organizou a defesa do quilombo contra sucessivas investidas. Foi morto em 20 de novembro de 1695, data que hoje lembra a resistência negra no Brasil.",
     detail: "hist-zumbi",
@@ -55,7 +55,7 @@ const events: TimelineEvent[] = [
     marker: "XVII",
     when: "Século XVII",
     title: "Dandara dos Palmares",
-    text: "Companheira de Zumbi, Dandara é lembrada como guerreira e estrategista. Os registros sobre sua vida são escassos, e por isso sua história pede cuidado ao ser contada.",
+    text: "Dandara é referência na memória da resistência negra. Detalhes de sua biografia não foram comprovados na documentação seiscentista examinada por especialistas.",
     detail: "hist-dandara",
   },
   {
@@ -70,7 +70,7 @@ const events: TimelineEvent[] = [
     marker: "Depois",
     when: "Pós-abolição",
     title: "Liberdade sem reparação",
-    text: "Sem políticas de inclusão, a desigualdade racial atravessou o século XX. A população negra foi empurrada para os trabalhos mais precários e as periferias, e a luta por direitos continuou nas ruas, nas escolas e nos sindicatos.",
+    text: "Sem um programa abrangente de inclusão após a abolição, a desigualdade racial atravessou o século XX. A população negra foi empurrada para os trabalhos mais precários e as periferias, e a luta por direitos continuou nas ruas, nas escolas e nos sindicatos.",
   },
   {
     marker: "20/11",

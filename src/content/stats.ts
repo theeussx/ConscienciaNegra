@@ -19,11 +19,11 @@ export const stats: Stat[] = [
     ratio: 55.5,
   },
   {
-    value: "77%",
-    label: "das vítimas de homicídio em 2023 eram pessoas negras (pretas e pardas).",
-    detail: "O índice foi de 76,97% no levantamento do Ipea e do Fórum Brasileiro de Segurança Pública.",
+    value: "77,1%",
+    label: "das vítimas de homicídio em 2024 eram pessoas negras (pretas e pardas).",
+    detail: "Cálculo aproximado: 32.820 vítimas negras entre 42.590 homicídios registrados, segundo o Atlas da Violência 2026.",
     source: "atlas",
-    ratio: 77,
+    ratio: 77.1,
   },
 ];
 
@@ -51,7 +51,7 @@ export const legalMilestones: LegalMilestone[] = [
   {
     year: "2012",
     title: "Reserva de vagas",
-    text: "Garante cotas para pretos, pardos e indígenas nas instituições federais de ensino.",
+    text: "Reserva vagas nas instituições federais de ensino para estudantes de escolas públicas, com critérios que incluem renda, raça e deficiência, conforme a legislação vigente.",
     source: "lei12711",
   },
   {

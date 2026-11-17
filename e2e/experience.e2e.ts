@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { palette } from "../src/design/tokens";
 
 const TYPED_SNIPPET = "O maracatu-nação nasceu em Pernambuco";
 
@@ -19,6 +20,17 @@ test("carrega os nove capítulos sem erros de execução", async ({ page }) => {
   await expect(page.locator("section[data-chapter]")).toHaveCount(9);
   await expect(page.getByRole("heading", { level: 1, name: "RAÍZES" })).toBeVisible();
   expect(problems).toEqual([]);
+});
+
+test("aplica a paleta definida nos tokens ao tema da página", async ({ page }) => {
+  await page.goto("/");
+  const rgb = [1, 3, 5]
+    .map((start) => Number.parseInt(palette.ink.slice(start, start + 2), 16))
+    .join(", ");
+  await expect(page.locator("html")).toHaveCSS(
+    "background-color",
+    `rgb(${rgb})`,
+  );
 });
 
 test("revela o conteúdo ao rolar e mantém o que já apareceu ao voltar", async ({ page }) => {

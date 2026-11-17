@@ -15,14 +15,14 @@ const dishes: Dish[] = [
   {
     id: "food-acaraje",
     name: "Acarajé",
-    summary: "Bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, caruru e camarão seco.",
+    summary: "Bolinho de feijão-fradinho frito no azeite de dendê, que pode ser servido com vatapá, caruru e camarão seco.",
     ingredients: "Feijão-fradinho, cebola, sal e azeite de dendê.",
     photo: "acaraje",
   },
   {
     id: "food-vatapa",
     name: "Vatapá",
-    summary: "Creme de pão ou farinha com leite de coco, amendoim, castanha-de-caju e camarão.",
+    summary: "Creme que pode levar pão ou farinha, leite de coco, amendoim, castanha-de-caju e camarão.",
     ingredients: "Pão ou farinha, leite de coco, dendê e camarão.",
     photo: "vatapa",
   },
@@ -60,7 +60,7 @@ export function Capitulo04() {
         </div>
         <Reveal variant="lateral" delay={0.1} className="lg:col-span-4 lg:col-start-9">
           <p className="font-display text-[clamp(1.7rem,2.4vw,2.4rem)] leading-[1.25] text-cream">
-            Quatro pratos baianos que carregam heranças africanas, indígenas e europeias. O acarajé é o mais conhecido,
+            Quatro pratos baianos que expressam encontros entre tradições e ingredientes. O acarajé é um deles,
             mas vatapá, caruru e abará completam o tabuleiro.
           </p>
         </Reveal>

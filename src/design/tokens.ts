@@ -1,14 +1,14 @@
 import type { Variants } from "motion/react";
 
-/** Paleta de referência. Espelhada em @theme (src/index.css). */
+/** Paleta de cores da aplicação, consumida pelo tema global. */
 export const palette = {
-  ink: "#100f0d",
-  surface: "#211f1b",
-  cream: "#FFF7E9",
-  creamDim: "#E5DECE",
-  terracotta: "#F18A65",
+  ink: "#000000",
+  surface: "#000000",
+  cream: "#ffffff",
+  creamDim: "#ffffff",
+  terracotta: "#B22222",
   olive: "#B3BD8A",
-  amber: "#F4C17E",
+  amber: "#D4AF37 ",
 } as const;
 
 /** Curva de desaceleração suave, usada em todas as revelações. */

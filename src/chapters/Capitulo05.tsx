@@ -47,7 +47,7 @@ function CaseCard({
 /** Capítulo 05: estudo de caso aprofundado (Balotelli), linha do tempo interativa e outros casos documentados. */
 export function Capitulo05() {
   return (
-    <ChapterSection id="cap-05" index={4} className="bg-[#13120f]">
+    <ChapterSection id="cap-05" index={4}>
       <ChapterHeader
         id="cap-05"
         number="05"

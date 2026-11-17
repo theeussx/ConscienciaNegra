@@ -22,11 +22,11 @@ export const details = {
     group: "historia",
     photo: "serra_barriga",
     facts: [
-      ["Período", "c. 1605 a 1694"],
-      ["Local", "Serra da Barriga, Alagoas"],
+      ["Período", "Século XVII"],
+      ["Local", "Região que hoje inclui Alagoas"],
     ],
     body:
-      "Palmares foi uma rede de comunidades formada por pessoas que fugiram do cativeiro. Reuniu milhares de pessoas, com agricultura, comércio e organização política própria.\n\nDurante décadas, resistiu às expedições enviadas pelo poder colonial, até ser destruído no fim do século XVII.",
+      "Palmares foi uma rede de comunidades formada por pessoas que fugiram do cativeiro. Reuniu milhares de pessoas, com agricultura, comércio e organização política própria.\n\nDurante décadas, resistiu às expedições enviadas pelo poder colonial, até a queda da fortificação na Serra da Barriga em 1694. Outros núcleos de Palmares não desapareceram imediatamente.",
     sources: ["palmares"],
   },
   "hist-zumbi": {
@@ -44,8 +44,8 @@ export const details = {
     title: "Dandara dos Palmares",
     group: "historia",
     body:
-      "Companheira de Zumbi, Dandara é lembrada como guerreira e estrategista da comunidade de Palmares.\n\nOs registros escritos sobre sua vida são escassos. Sua memória chega sobretudo pela tradição oral e pela militância do movimento negro, por isso ela deve ser citada com cuidado.",
-    sources: ["palmares"],
+      "Dandara é uma referência na memória da resistência negra ligada a Palmares.\n\nDetalhes de sua biografia, inclusive sua relação com Zumbi, não foram comprovados na documentação do século XVII examinada por especialistas.",
+    sources: ["dandara"],
   },
   "hist-lei-aurea": {
     kicker: "Marco histórico · 1888",
@@ -67,7 +67,7 @@ export const details = {
     ],
     body:
       "O maracatu-nação nasceu em Pernambuco a partir de cortejos de coroação de reis e rainhas do Congo, ligados às irmandades negras do Rosário.\n\nHoje, com batuques de baque virado, calungas e estandartes, ele ocupa as ruas do Recife e de Olinda e mantém viva a ligação com a ancestralidade.",
-    sources: ["itau"],
+    sources: ["maracatu"],
   },
   "cult-capoeira": {
     kicker: "Manifestação cultural · Brasil",
@@ -76,7 +76,7 @@ export const details = {
     photo: "capoeira",
     facts: [["Origem", "Raízes africanas, desenvolvidas no Brasil"]],
     body:
-      "A capoeira reúne luta, dança, música e jogo. Tem raízes africanas e se desenvolveu no Brasil, em meio à escravização, como forma de treino, resistência e convivência.\n\nNa roda, o ritmo do berimbau comanda os movimentos. Hoje é reconhecida como patrimônio cultural brasileiro e como patrimônio cultural da humanidade pela UNESCO.",
+      "A capoeira reúne luta, dança, música e jogo. Tem raízes africanas e se desenvolveu no Brasil, em meio à escravização, como forma de treino, resistência e convivência.\n\nNa roda, o ritmo do berimbau comanda os movimentos. A roda e o ofício dos mestres são reconhecidos como patrimônio cultural brasileiro; a roda de capoeira foi inscrita pela UNESCO na lista do patrimônio cultural imaterial da humanidade.",
     sources: ["unesco_cap"],
   },
   "cult-samba": {
@@ -86,8 +86,8 @@ export const details = {
     photo: "samba",
     facts: [["Raiz", "Samba de roda do Recôncavo Baiano"]],
     body:
-      "A palavra samba está associada ao quimbundo semba, nome de danças de umbigada praticadas em Angola.\n\nNo Recôncavo Baiano, o samba de roda se mantém como expressão coletiva de canto, palmas e dança. Em 2005, a UNESCO o reconheceu como Obra-Prima do Patrimônio Oral e Imaterial da Humanidade.",
-    sources: ["unesco_samba", "itau"],
+      "No Recôncavo Baiano, o samba de roda se mantém como expressão coletiva de canto, palmas e dança. Em 2005, a UNESCO o reconheceu como Obra-Prima do Patrimônio Oral e Imaterial da Humanidade.",
+    sources: ["unesco_samba"],
   },
   "cult-jongo": {
     kicker: "Manifestação cultural · Sudeste",
@@ -97,7 +97,7 @@ export const details = {
     facts: [["Matriz", "Bantu, de Angola e do Congo"]],
     body:
       "O jongo, também chamado de caxambu, é uma dança e um canto de origem bantu, praticado sobretudo no Sudeste brasileiro.\n\nOs pontos cantados funcionam como desafios e recados cifrados, e o tambor marca a roda. O jongo guarda memórias de ancestralidade e de comunicação entre gerações, que atravessaram a escravização.",
-    sources: ["itau"],
+    sources: ["jongo"],
   },
   "cult-religioes": {
     kicker: "Religiosidades de matriz africana",
@@ -107,17 +107,17 @@ export const details = {
     facts: [["Matrizes", "Iorubá, banta e jeje, entre outras"]],
     body:
       "Candomblé, umbanda e outras religiões de matriz africana preservam nomes, cantos, comidas e práticas de tradições africanas recriadas no Brasil.\n\nPor séculos, essas religiões foram perseguidas. A Constituição de 1988 garante a liberdade de crença e de culto, e elas seguem como expressões vivas de fé e identidade.",
-    sources: ["cf1988"],
+    sources: ["religioes", "cf1988"],
   },
   "cult-linguagem": {
     kicker: "Linguagem · Português do Brasil",
     title: "Palavras que vieram da África",
     group: "cultura",
     photo: "carolina",
-    facts: [["Exemplos", "cafuné, quitanda, moleque, samba"]],
+    facts: [["Contribuições", "Línguas banto, iorubá e outras"]],
     body:
-      "Muitas palavras do português brasileiro têm origem em línguas africanas, sobretudo do grupo banto, como o quimbundo.\n\nCafuné, quitanda, moleque e samba fazem parte do cotidiano. A língua que falamos é também africana, e reconhecer isso faz parte da história do país.",
-    sources: ["itau"],
+      "Muitas palavras do português brasileiro têm origem em línguas africanas, sobretudo do grupo banto, como o quimbundo.\n\nEssas contribuições estão presentes no cotidiano, em palavras e modos de expressão. Reconhecê-las faz parte da história do português brasileiro.",
+    sources: ["linguas"],
   },
   "food-acaraje": {
     kicker: "Prato · Bahia",
@@ -130,7 +130,7 @@ export const details = {
     ],
     body:
       "O acarajé é um bolinho de feijão-fradinho ralado, temperado com cebola e sal e frito no azeite de dendê. O nome tem origem iorubá, ligada a àkàrà, bolinho de feijão frito.\n\nEm Salvador, ele é vendido pelas baianas de acarajé e também é oferecido aos orixás no candomblé. O ofício foi registrado pelo IPHAN como patrimônio cultural imaterial do Brasil em 2005.",
-    sources: ["iphan"],
+    sources: ["iphan", "alimento", "acaraje_ipac"],
   },
   "food-vatapa": {
     kicker: "Prato · Bahia",
@@ -142,8 +142,8 @@ export const details = {
       ["Ingredientes", "Camarão, amendoim e castanha-de-caju"],
     ],
     body:
-      "O vatapá é um creme temperado, feito com pão ou farinha, leite de coco, azeite de dendê, amendoim e castanha-de-caju, geralmente com camarão.\n\nEle combina técnicas e ingredientes africanos, indígenas e europeus. Em muitas receitas, é o recheio do acarajé e aparece em outros pratos da culinária baiana.",
-    sources: ["iphan"],
+      "O vatapá é um creme temperado que pode levar pão ou farinha, leite de coco, azeite de dendê, amendoim, castanha-de-caju e camarão. Seus ingredientes variam conforme a receita.\n\nEle combina técnicas e ingredientes africanos, indígenas e europeus. Em muitas receitas, é o recheio do acarajé e aparece em outros pratos da culinária baiana.",
+    sources: ["iphan", "alimento"],
   },
   "food-caruru": {
     kicker: "Prato · Bahia",
@@ -155,8 +155,8 @@ export const details = {
       ["Festa", "Cosme e Damião, 27 de setembro"],
     ],
     body:
-      "O caruru é preparado com quiabo refogado, camarão seco, azeite de dendê, amendoim e castanha-de-caju. O quiabo é uma planta de origem africana, presente na culinária afro-brasileira desde o período colonial.\n\nNas festas de Cosme e Damião, o caruru é distribuído a crianças e visitantes, em tradição ligada a Ibeji, no candomblé.",
-    sources: ["iphan"],
+      "O caruru pode ser preparado com quiabo, camarão seco, azeite de dendê, amendoim e castanha-de-caju. O quiabo é uma planta de origem africana, presente na culinária afro-brasileira desde o período colonial.\n\nNas festas de Cosme e Damião, o caruru é distribuído a crianças e visitantes, em tradição ligada a Ibeji, no candomblé.",
+    sources: ["alimento", "caruru"],
   },
   "food-abara": {
     kicker: "Prato · Bahia",
@@ -166,7 +166,7 @@ export const details = {
     facts: [["Preparo", "Cozido no vapor, envolto em folhas"]],
     body:
       "O abará é um bolinho de feijão-fradinho temperado com azeite de dendê. Diferente do acarajé, ele não é frito: a massa é envolta em folhas e cozida no vapor.\n\nComo o acarajé, aparece no tabuleiro das baianas e em oferendas religiosas. A cozinha afro-brasileira é também uma forma de cuidado e de fé.",
-    sources: ["iphan"],
+    sources: ["iphan", "alimento"],
   },
   "fut-partida": {
     kicker: "Estudo de caso · 3 de novembro de 2019",
@@ -220,11 +220,11 @@ export const details = {
     group: "futebol",
     facts: [
       ["Clube", "Hellas Verona"],
-      ["Estádio", "Fechamento parcial de um setor, por uma partida"],
+      ["Estádio", "Sanção alterada após recurso"],
     ],
     body:
-      "O Verona baniu o líder do grupo ultras, Luca Castellini, por 11 anos. Ele havia afirmado que Balotelli 'nunca poderá ser completamente italiano'.\n\nA comissão disciplinar da Série A determinou o fechamento parcial do estádio, no setor Poltrone Est, por uma partida. A decisão foi tomada dois dias depois do jogo.",
-    sources: ["bbc2"],
+      "O Verona baniu o líder do grupo ultras, Luca Castellini, por 11 anos. Ele havia afirmado que Balotelli 'nunca poderá ser completamente italiano'.\n\nA comissão disciplinar da Série A determinou o fechamento parcial do estádio, no setor Poltrone Est, por uma partida. A decisão foi tomada dois dias depois do jogo. Após recurso, a sanção foi limitada ao setor 8 e suspensa condicionalmente por um ano.",
+    sources: ["bbc2", "balotelli_recurso"],
   },
   "fut-reacoes": {
     kicker: "Repercussão",
@@ -245,8 +245,8 @@ export const details = {
       ["Local", "Mestalla, Valência (Espanha)"],
     ],
     body:
-      "Durante a partida, o jogo foi interrompido depois que Vinícius Júnior relatou que um torcedor o chamou de macaco e fez gestos semelhantes. Ele chegou a considerar deixar o campo e acabou expulso após um confronto com jogadores do Valencia.\n\nDias depois, a polícia espanhola prendeu três pessoas, que foram liberadas após depoimento. O Valencia foi multado em 45 mil euros e parte do estádio foi fechada por cinco jogos. A federação anulou o cartão vermelho.",
-    sources: ["ap_vini", "efe_vini", "guardian_vini"],
+      "Durante a partida, o jogo foi interrompido depois que Vinícius Júnior relatou que um torcedor o chamou de macaco e fez gestos semelhantes. Ele chegou a considerar deixar o campo e acabou expulso após um confronto com jogadores do Valencia.\n\nDias depois, a polícia espanhola prendeu três pessoas, que foram liberadas após depoimento. A federação anulou o cartão vermelho. Inicialmente, determinou o fechamento parcial do estádio por cinco jogos e multa de 45 mil euros; em recurso, reduziu as sanções para três jogos e 27 mil euros.",
+    sources: ["efe_vini", "vinicius_recurso"],
   },
   "fut-richarlison": {
     kicker: "Caso documentado · 27 de setembro de 2022",
@@ -258,7 +258,7 @@ export const details = {
       ["Placar", "Brasil 5 x 1 Tunísia"],
     ],
     body:
-      "Ao comemorar o segundo gol do Brasil, Richarlison foi atingido por uma banana arremessada da arquibancada. Um companheiro retirou o objeto do gramado.\n\nA CBF repudiou qualquer manifestação de preconceito, e a Fifa anunciou investigação. Richarlison escreveu que o racismo continuaria enquanto não houvesse punição e que acontece 'todos os dias e em todo lugar' (tradução livre). Antes do jogo, os jogadores brasileiros haviam exibido uma faixa em resposta aos ataques sofridos por Vinícius Júnior.",
+      "Ao comemorar o segundo gol do Brasil, Richarlison teve uma banana arremessada em sua direção da arquibancada. Um companheiro retirou o objeto do gramado.\n\nA CBF repudiou qualquer manifestação de preconceito, e a Fifa anunciou investigação. Richarlison escreveu que o racismo continuaria enquanto não houvesse punição e que acontece 'todos os dias e em todo lugar' (tradução livre). Antes do jogo, os jogadores brasileiros haviam exibido uma faixa em resposta aos ataques sofridos por Vinícius Júnior.",
     sources: ["cnn_rich", "bbc_rich"],
   },
   "pess-machado": {
@@ -285,7 +285,7 @@ export const details = {
     ],
     body:
       "Nascida em Sacramento, Minas Gerais, Carolina Maria de Jesus viveu na favela do Canindé, em São Paulo. Catava papel para sustentar os filhos.\n\nEm seu diário, publicado em 1960 como Quarto de despejo, descreveu a fome, a violência e a desigualdade do cotidiano. O livro tornou-se um marco da literatura brasileira e foi traduzido para vários idiomas.",
-    sources: ["itau"],
+    sources: ["carolina_bio"],
   },
   "pess-luiz-gama": {
     kicker: "Personalidade · Abolicionismo",
@@ -297,8 +297,8 @@ export const details = {
       ["Atuação", "Advogado autodidata e abolicionista"],
     ],
     body:
-      "Nascido livre em Salvador, Luiz Gama foi vendido como escravizado pelo próprio pai, quando era criança. Recuperou a liberdade e aprendeu a ler e escrever por conta própria.\n\nTornou-se advogado sem diploma e usou o direito como arma: conquistou a liberdade de centenas de pessoas escravizadas nos tribunais.",
-    sources: ["itau"],
+      "Nascido livre em Salvador, Luiz Gama foi vendido como escravizado pelo próprio pai, quando era criança. Recuperou a liberdade e aprendeu a ler e escrever com a ajuda de Antônio Rodrigues do Prado Júnior.\n\nAtuou como advogado sem diploma de bacharel em direito e usou a lei como arma: atuou pela liberdade de pessoas escravizadas nos tribunais.",
+    sources: ["gama"],
   },
   "pess-milton": {
     kicker: "Personalidade · Geografia",
@@ -310,8 +310,8 @@ export const details = {
       ["Reconhecimento", "Prêmio Vautrin Lud (1994)"],
     ],
     body:
-      "Geógrafo baiano, nascido em Brotas de Macaúbas, Milton Santos estudou como o espaço é produzido pela desigualdade social, pela técnica e pelo poder.\n\nRecebeu o Prêmio Vautrin Lud em 1994, considerado o 'Nobel da geografia'. Sua obra pensa a globalização a partir do Sul do mundo e das populações das cidades periféricas.",
-    sources: ["itau"],
+      "Geógrafo baiano, nascido em Brotas de Macaúbas, Milton Santos estudou como o espaço é produzido pela desigualdade social, pela técnica e pelo poder.\n\nRecebeu o Prêmio Vautrin Lud em 1994, um reconhecimento internacional na área. Sua obra pensa a globalização a partir do Sul do mundo e das populações das cidades periféricas.",
+    sources: ["milton"],
   },
   "pess-conceicao": {
     kicker: "Personalidade · Literatura",
@@ -324,7 +324,7 @@ export const details = {
     ],
     body:
       "Escritora mineira, Conceição Evaristo criou o conceito de escrevivência: uma escrita que nasce da experiência de vida de mulheres negras, da rua, da cozinha e da memória familiar.\n\nSeus romances e contos, como Ponciá Vicêncio e Olhos d'água, dão voz a personagens que a literatura tradicional costumava silenciar.",
-    sources: ["itau"],
+    sources: ["conceicao"],
   },
   "pess-pele": {
     kicker: "Personalidade · Esporte",
@@ -337,7 +337,7 @@ export const details = {
     ],
     body:
       "Edson Arantes do Nascimento, o Pelé, nasceu em Três Corações, Minas Gerais, e se tornou um dos maiores jogadores da história. Foi tricampeão mundial com a seleção brasileira.\n\nSua trajetória mostra o talento de um menino negro que venceu a pobreza e levou o nome do Brasil ao mundo. Ao longo da carreira, também enfrentou o racismo.",
-    sources: ["itau"],
+    sources: ["pele"],
   },
 } satisfies Record<string, DetailItem>;
 

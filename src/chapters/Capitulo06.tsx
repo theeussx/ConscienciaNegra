@@ -30,7 +30,7 @@ const people: Person[] = [
     id: "pess-luiz-gama",
     photo: "luiz_gama",
     name: "Luiz Gama",
-    role: "Advogado autodidata e abolicionista, que libertou centenas de pessoas pela via judicial.",
+    role: "Advogado e abolicionista, atuou pela liberdade de pessoas escravizadas na Justiça.",
     aspect: "aspect-[3/4]",
   },
   {

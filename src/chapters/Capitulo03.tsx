@@ -31,7 +31,7 @@ const stations: Station[] = [
     id: "cult-samba",
     place: "Bahia e Rio de Janeiro",
     title: "Samba",
-    text: "Do samba de roda do Recôncavo às rodas urbanas, a música carrega a herança do semba e da umbigada.",
+    text: "Do samba de roda do Recôncavo às rodas urbanas, música e dança preservam e recriam heranças culturais.",
     photo: "samba",
   },
   {
@@ -53,7 +53,7 @@ const stations: Station[] = [
     id: "cult-linguagem",
     place: "Português do Brasil",
     title: "Palavras que vieram da África",
-    text: "Cafuné, quitanda, moleque e samba mostram que a língua que falamos também é africana.",
+    text: "Línguas africanas contribuíram para as palavras e os modos de expressão do português brasileiro.",
     photo: "carolina",
   },
 ];

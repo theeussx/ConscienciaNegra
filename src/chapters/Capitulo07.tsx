@@ -7,7 +7,7 @@ import { duration, ease } from "../design/tokens";
 const themes: Array<[string, string]> = [
   ["Racismo estrutural", "Não está apenas nas atitudes individuais. Aparece nas regras, nas instituições e nas oportunidades desiguais."],
   ["Desigualdade social", "A população negra segue mais exposta à pobreza e a serviços públicos de menor qualidade."],
-  ["Educação antirracista", "Ensinar a história africana e afro-brasileira em todas as escolas, como determina a Lei 10.639/2003."],
+  ["Educação antirracista", "A Lei 10.639/2003 tornou obrigatório o ensino de história e cultura afro-brasileira no ensino fundamental e médio, público e privado."],
   ["Representatividade", "Ver pessoas negras em posições de liderança, na arte, na ciência e na política amplia horizontes."],
   ["Respeito", "Respeitar nomes, cabelos, religiões, corpos e culturas é prática cotidiana, não apenas uma data."],
   ["Valorização cultural", "Reconhecer línguas, saberes, culinárias e artes de origem africana como parte do patrimônio do Brasil."],

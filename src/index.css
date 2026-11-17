@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* Design tokens: a paleta é espelhada em src/design/tokens.ts. */
+/* Cores do tema definidas em src/design/tokens.ts e aplicadas por src/main.tsx. */
 @theme {
-  --color-ink: #100f0d;
-  --color-surface: #211f1b;
-  --color-cream: #fff7e9;
-  --color-cream-dim: #e5dece;
-  --color-terracotta: #f18a65;
-  --color-olive: #b3bd8a;
-  --color-amber: #f4c17e;
+  --color-ink: var(--palette-ink);
+  --color-surface: var(--palette-surface);
+  --color-cream: var(--palette-cream);
+  --color-cream-dim: var(--palette-cream-dim);
+  --color-terracotta: var(--palette-terracotta);
+  --color-olive: var(--palette-olive);
+  --color-amber: var(--palette-amber);
   --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
   --font-text: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
 }
@@ -79,7 +79,7 @@
     gap: 0.5rem;
     min-height: 44px;
     padding: 0.55rem 1.1rem;
-    border: 1px solid rgb(244 236 221 / 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     color: var(--color-cream);
     font-size: 1.05rem;
     font-weight: 700;
@@ -116,7 +116,7 @@
     font-size: 1rem;
     font-weight: 700;
     color: var(--color-cream);
-    border: 1px solid rgb(244 236 221 / 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     transition:
       border-color 0.2s,
       background-color 0.2s,
@@ -150,7 +150,7 @@
     min-height: 56px;
     padding: 1rem 1.25rem;
     text-align: left;
-    border: 1px solid rgb(244 236 221 / 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     transition:
       border-color 0.25s,
       background-color 0.25s,
@@ -204,7 +204,7 @@
   }
 
   figure > div {
-    border: 1px solid rgb(244 236 221 / 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0 18px 50px rgb(0 0 0 / 0.16);
   }
 
@@ -217,7 +217,7 @@
     position: absolute;
     top: 2rem;
     right: clamp(1.5rem, 5vw, 5rem);
-    color: rgb(244 236 221 / 0.16);
+    color: rgba(255, 255, 255, 0.16);
     font-family: var(--font-display);
     font-size: clamp(4rem, 10vw, 9rem);
     line-height: 0.8;

@@ -116,13 +116,10 @@ export function Capitulo09() {
             ))}
           </ul>
           <p className="mt-8 text-[1rem] leading-relaxed text-cream-dim">
-            Verificação: fatos, datas e números foram conferidos em reportagens (BBC, Reuters, AP, EFE, CNN e The
-            Guardian) e em documentos oficiais (IBGE, Ipea e Fórum Brasileiro de Segurança Pública, Planalto e IPHAN).
-            Revise antes de cada apresentação.
+            Verificação: consulte as referências acima para conferir o contexto e a data dos dados. Revise informações e links antes de cada apresentação.
           </p>
           <p className="mt-4 text-[1rem] leading-relaxed text-cream-dim">
-            RAÍZES — Além da cor · Apresentação escolar. Imagens, fontes e textos estão incorporados ao arquivo e
-            funcionam sem internet.
+            RAÍZES — Além da cor · Apresentação escolar. Textos e imagens estão incorporados; links para fontes externas requerem internet.
           </p>
         </section>
       </footer>

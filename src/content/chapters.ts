@@ -80,7 +80,7 @@ export const chapters: ChapterMeta[] = [
     short: "Consciência negra hoje",
     title: "A consciência negra é compromisso do presente.",
     notes: [
-      "Use os números com fonte: IBGE (Censo 2022) e Atlas da Violência 2025.",
+      "Use os números com fonte: IBGE (Censo 2022) e Atlas da Violência 2026.",
       "Mostre as leis: 1989, 2003, 2012 e 2023. Diga o ano e a fonte de cada uma.",
       "Convide o público à responsabilidade coletiva, sem apontar culpados individuais.",
     ],
