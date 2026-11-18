@@ -20,10 +20,12 @@ export interface Participant {
  * por exemplo: photo: "/images/participantes/mateus.jpg".
  */
 export const participants: Participant[] = [
-  { id: "p01", name: "Mateus Henrique", role: "Desenvolvedor/Designer", description: "Desenvolvedor e designer da aplicação web.", photo: "/images/participantes/mateus.webp", portfolioUrl: "https://theeussx.vercel.app/" },
-  { id: "p02", name: "Arthur Felipe", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/arthur.webp", portfolioUrl: "https://arthurdevstudio.online" },
-  { id: "p03", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
-  { id: "p04", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
-  { id: "p05", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
-  { id: "p06", name: "Nome a definir", role: "Função a definir", description: "Descrição a ser preenchida.", photo: "/images/participantes/" },
+  { id: "p01", name: "Mateus Henrique", role: "Desenvolvedor, designer e apresentador da palestra final", description: "Desenvolvedor e designer da aplicação web. Responsável pelo guiamento do site.", photo: "/images/participantes/mateus.webp", portfolioUrl: "https://theeussx.vercel.app/" },
+  { id: "p02", name: "Arthur Felipe", role: "Apresentador do capitulo 5", description: "Racismo no futebol", photo: "/images/participantes/arthur.webp", portfolioUrl: "https://arthurdevstudio.online" },
+  { id: "p03", name: "Matheus Braga", role: "Apresentador do capitulo 6", description: "A África que vive no Brasil", photo: "/images/participantes/matheus.jpeg", },
+  { id: "p04", name: "Isaac Magno", role: "Apresentador do capitulo 2", description: "Descrição a ser preenchida.", photo: "/images/participantes/isaac.webp", },
+  { id: "p05", name: "Lucas Henrique", role: "Apresentador do capitulo 7", description: "A consciência negra é compromisso do presente.", photo: "/images/participantes/lucas.jpeg", },
+  { id: "p06", name: "Ana Julia", role: "Apresentadora do capitulo 4", description: "Sabores que contam histórias.", photo: "/images/participantes/ana.jpeg", },
+  { id: "p07", name: "Ayne Maysa", role: "Apresentadora do capitulo 7", description: "A consciência negra é compromisso do presente.", photo: "/images/participantes/ayne.jpeg" },
+  { id: "p08", name: "Jamilly Chayani", role: "Apresentadora do capitulo 3", description: "A África que vive no Brasil", photo: "/images/participantes/jamilly.jpeg" },
 ];

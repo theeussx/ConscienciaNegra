@@ -107,6 +107,24 @@ test("participantes aparecem com placeholders e créditos finais", async ({ page
   await expect(page.getByRole("heading", { name: "Créditos das imagens" })).toBeAttached();
 });
 
+test("três cliques no nome de Mateus abrem o roteiro secreto", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#cap-09").scrollIntoViewIfNeeded();
+  const trigger = page.getByRole("button", { name: "Clique três vezes para abrir o roteiro secreto de Mateus Henrique" });
+  await trigger.click();
+  await trigger.click();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await trigger.click();
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("heading", { name: "Roteiro de Mateus Henrique" })).toBeVisible();
+  await expect(dialog).toContainText("Boa tarde.");
+  await expect(dialog).toContainText("a turma do primeiro ano D agradece.");
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+});
+
 test("funciona sem acesso à rede externa", async ({ page }) => {
   await page.route("**/*", (route) => {
     const url = route.request().url();

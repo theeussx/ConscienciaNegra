@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
 import { ChapterHeader, ChapterSection, Reveal } from "../components/Narrative";
+import { ModalShell } from "../components/Dialog";
 import { participants, type Participant } from "../content/participants";
 import { photos } from "../content/media";
 import { sources } from "../content/sources";
+import mateusScript from "../../ROTEIRO_MATEUS.md?raw";
 
 function ParticipantPhoto({ participant, number }: { participant: Participant; number: number }) {
   const [failedSource, setFailedSource] = useState<string | null>(null);
@@ -31,6 +34,8 @@ function ParticipantPhoto({ participant, number }: { participant: Participant; n
 
 /** Capítulo 09: participantes com placeholders até a entrega dos dados reais, e créditos finais. */
 export function Capitulo09() {
+  const [scriptOpen, setScriptOpen] = useState(false);
+  const [nameClicks, setNameClicks] = useState(0);
   const photoCredits = Array.from(
     new Map(
       Object.values(photos)
@@ -38,6 +43,12 @@ export function Capitulo09() {
         .map((photo) => [`${photo.source}:${photo.author}`, photo]),
     ).values(),
   );
+
+  useEffect(() => {
+    if (!scriptOpen) return;
+    document.documentElement.classList.add("dialog-open");
+    return () => document.documentElement.classList.remove("dialog-open");
+  }, [scriptOpen]);
 
   return (
     <ChapterSection id="cap-09" index={8}>
@@ -55,7 +66,27 @@ export function Capitulo09() {
             <Reveal variant="up" delay={(i % 3) * 0.08} beat>
               <ParticipantPhoto participant={participant} number={i + 1} />
               <h3 className="font-display mt-6 text-[clamp(1.7rem,2.4vw,2.4rem)] leading-tight text-cream">
-                {participant.name}
+                {participant.name === "Mateus Henrique" ? (
+                  <button
+                    type="button"
+                    aria-haspopup="dialog"
+                    aria-label="Clique três vezes para abrir o roteiro secreto de Mateus Henrique"
+                    onClick={() => {
+                      const nextClickCount = nameClicks + 1;
+                      if (nextClickCount === 3) {
+                        setNameClicks(0);
+                        setScriptOpen(true);
+                      } else {
+                        setNameClicks(nextClickCount);
+                      }
+                    }}
+                    className="cursor-text text-left"
+                  >
+                    {participant.name}
+                  </button>
+                ) : (
+                  participant.name
+                )}
               </h3>
               <p className="mt-2 text-[1.15rem] text-amber">{participant.role}</p>
               {participant.description && (
@@ -76,6 +107,37 @@ export function Capitulo09() {
           </li>
         ))}
       </ul>
+
+      <AnimatePresence>
+        {scriptOpen && (
+          <ModalShell key="mateus-script" labelledBy="mateus-script-title" onClose={() => setScriptOpen(false)}>
+            <div className="flex min-h-full flex-col gap-8 px-6 py-8 md:px-12 md:py-12">
+              <div className="flex items-start justify-between gap-6">
+                <p className="kicker max-w-[36ch]">Material de apresentação</p>
+                <button
+                  type="button"
+                  data-autofocus=""
+                  onClick={() => setScriptOpen(false)}
+                  className="btn shrink-0"
+                >
+                  Fechar
+                </button>
+              </div>
+              <h2
+                id="mateus-script-title"
+                className="font-display text-[clamp(2.2rem,4vw,3.6rem)] leading-[1.05] text-cream"
+              >
+                Roteiro de Mateus Henrique
+              </h2>
+              <div className="max-w-[62ch] space-y-5 text-[1.15rem] leading-[1.7] text-cream">
+                {mateusScript.trim().split(/\n\s*\n/).map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </ModalShell>
+        )}
+      </AnimatePresence>
 
       <footer className="mx-auto mt-40 grid max-w-[1480px] gap-14 border-t border-cream/15 pt-14 lg:grid-cols-2">
         <section aria-labelledby="fontes-finais">

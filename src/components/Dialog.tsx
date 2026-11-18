@@ -38,6 +38,11 @@ export function ModalShell({ labelledBy, onClose, variant = "side", children }: 
   }, [previous]);
 
   const onKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+      return;
+    }
     if (event.key !== "Tab" || !panelRef.current) return;
     const items = Array.from(
       panelRef.current.querySelectorAll<HTMLElement>("button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])"),
