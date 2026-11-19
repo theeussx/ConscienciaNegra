@@ -92,4 +92,32 @@ Como o educador Paulo Freire defendia: a educação deve formar pessoas capazes 
 
 É isso que tentamos fazer aqui.
 
+Antes de encerrar, quero deixar algo bem claro.
+
+Questionar uma ideia não significa desrespeitar uma história.
+
+Discordar de uma política pública não significa negar a existência do racismo.
+
+E defender uma opinião diferente não transforma automaticamente alguém em fascista, preconceituoso ou opressor.
+
+Se o simples fato de apresentar uma perspectiva diferente for suficiente para que alguém receba esses rótulos, então precisamos refletir sobre o tipo de diálogo que estamos construindo.
+
+Porque não existe pensamento crítico quando as pessoas têm medo de fazer perguntas.
+
+Não existe debate verdadeiro quando substituímos argumentos por ofensas.
+
+E não existe educação transformadora quando esperamos que todos pensem exatamente da mesma maneira.
+
+Paulo Freire defendia uma educação fundamentada no diálogo, na reflexão e na construção do conhecimento.
+
+E dialogar não significa concordar com tudo.
+
+Significa estar disposto a ouvir, questionar e também ser questionado.
+
+**Eu não peço que todos concordem comigo. Peço apenas que minhas ideias sejam avaliadas pelos argumentos que apresentei, e não por rótulos atribuídos à minha pessoa.**
+
+Porque uma escola deve ser um lugar onde aprendemos não apenas a defender nossas convicções, mas também a reconhecer quando precisamos revê-las.
+
+**Afinal, se não conseguimos respeitar o direito de alguém pensar diferente, como podemos ensinar o verdadeiro significado do respeito?**
+
 Meu nome é Mateus, e a turma do primeiro ano D agradece.
