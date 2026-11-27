@@ -20,7 +20,7 @@ export interface Participant {
  * por exemplo: photo: "/images/participantes/mateus.jpg".
  */
 export const participants: Participant[] = [
-  { id: "p01", name: "Mateus Henrique", role: "Desenvolvedor, designer e apresentador da palestra final", description: "Desenvolvedor e designer da aplicação web. Responsável pelo guiamento do site.", photo: "/images/participantes/mateus.webp", portfolioUrl: "https://theeussx.vercel.app/" },
+  { id: "p01", name: "Mateus Henrique", role: "Desenvolvedor, designer e apresentador da palestra final", description: "Desenvolvedor e designer da aplicação web. Responsável pelo guiamento do site.", photo: "/images/participantes/mateus.webp", portfolioUrl: "https://theeussx.online/" },
   { id: "p02", name: "Arthur Felipe", role: "Apresentador do capitulo 5", description: "Racismo no futebol", photo: "/images/participantes/arthur.webp", portfolioUrl: "https://arthurdevstudio.online" },
   { id: "p03", name: "Matheus Braga", role: "Apresentador do capitulo 6", description: "A África que vive no Brasil", photo: "/images/participantes/matheus.jpeg", },
   { id: "p04", name: "Isaac Magno", role: "Apresentador do capitulo 2", description: "Descrição a ser preenchida.", photo: "/images/participantes/isaac.webp", },
